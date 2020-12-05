@@ -3,7 +3,7 @@ import webbrowser
 import click
 from search import searchProject
 from tabulate import tabulate
-
+from prettytable import PrettyTable
 
 @click.command()
 @click.argument('project')

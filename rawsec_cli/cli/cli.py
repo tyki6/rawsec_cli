@@ -1,4 +1,5 @@
 import click
+from command.listCommand import listCommand
 from tools import loadInventoryJson
 from command.searchCommand import search
 
@@ -11,38 +12,7 @@ def cli(ctx):
 
 
 cli.add_command(search)
-
-
-@cli.group("list")
-def listCommand():
-    click.echo("list")
-
-
-@cli.group()
-def submit():
-    click.echo("submit")
-
-
-@listCommand.command("tools")
-def tools(ctx):
-    click.echo('tools')
-    click.echo(ctx.obj)
-
-
-@listCommand.command()
-def ressources():
-    click.echo('resources called')
-
-
-@listCommand.command()
-def ctf():
-    click.echo('ctf_platforms')
-
-
-@listCommand.command()
-def os():
-    click.echo('operating_systems')
-
+cli.add_command(listCommand)
 
 if __name__ == '__main__':
     cli(obj={})

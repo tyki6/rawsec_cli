@@ -12,7 +12,7 @@ def getToolsJson(json):
     return json["tools"]
 
 
-def getRessourcesJson(json):
+def getResourcesJson(json):
     return json["resources"]
 
 
@@ -29,8 +29,8 @@ def getToolsCategory(json):
     return getToolsJson(json).keys()
 
 
-def getRessourcesCategory(json):
-    return getRessourcesJson(json).keys()
+def getResourcesCategory(json):
+    return getResourcesJson(json).keys()
 
 
 def getCTFCategory(json):
@@ -46,8 +46,8 @@ def getToolsByCategory(json, category):
     return getToolsJson(json)[category]["tools"]
 
 
-def getRessourcesByCategory(json, category):
-    return getRessourcesJson(json)[category]["resources"]
+def getResourcesByCategory(json, category):
+    return getResourcesJson(json)[category]["resources"]
 
 
 def getCTFByCategory(json, category):
@@ -56,3 +56,35 @@ def getCTFByCategory(json, category):
 
 def getOperatingByCategory(json, category):
     return getOperatingJson(json)[category]["operating_systems"]
+
+
+def getAllTools(json):
+    listProjects = list()
+    for categoryTools in getToolsCategory(json):
+        for tool in getToolsByCategory(json, categoryTools):
+            listProjects.append(tool)
+    return listProjects
+
+
+def getAllResources(json):
+    listProjects = list()
+    for categoryResources in getResourcesCategory(json):
+        for tool in getResourcesByCategory(json, categoryResources):
+            listProjects.append(tool)
+    return listProjects
+
+
+def getAllCTF(json):
+    listProjects = list()
+    for categoryCTF in getCTFCategory(json):
+        for tool in getCTFByCategory(json, categoryCTF):
+            listProjects.append(tool)
+    return listProjects
+
+
+def getAllOperating(json):
+    listProjects = list()
+    for categoryOperating in getOperatingCategory(json):
+        for tool in getOperatingByCategory(json, categoryOperating):
+            listProjects.append(tool)
+    return listProjects
