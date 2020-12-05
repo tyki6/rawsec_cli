@@ -1,6 +1,4 @@
-from tools import getToolsCategory, getToolsByCategory, getResourcesCategory, getResourcesByCategory, getCTFCategory, \
-    getCTFByCategory, getOperatingCategory, getOperatingByCategory, getAllTools, getAllResources, getAllCTF, \
-    getAllOperating
+from tools import getAllTools, getAllResources, getAllCTF, getAllOperating
 
 
 def searchProjectTools(json, project):
@@ -36,4 +34,8 @@ def searchProjectOperating(json, project):
 
 
 def searchProject(json, project):
-    return searchProjectTools(json, project) + searchProjectCTF(json, project) + searchProjectResources(json, project)
+    return (
+        searchProjectTools(json, project)
+        + searchProjectCTF(json, project)
+        + searchProjectResources(json, project)
+    )

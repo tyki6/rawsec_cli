@@ -8,7 +8,7 @@ test:
 coverage:
 	coverage report -m
 flake8:
-	pip install flake8
+	black . --check
 	flake8 tests rawsec_cli
 docstr:
 	docstr-coverage rawsec_cli tests --skipinit --badge=img

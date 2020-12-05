@@ -4,10 +4,10 @@ import click
 from filter import filterProjects
 from search import searchProject
 from tabulate import tabulate
-from prettytable import PrettyTable
+
 
 @click.command()
-@click.argument('project')
+@click.argument("project")
 @click.pass_context
 @click.option("--lang", "-l", help="Filter by Language")
 @click.option("--price", "-p", is_flag=True, help="Filter by Price=True")
