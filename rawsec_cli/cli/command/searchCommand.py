@@ -1,6 +1,7 @@
 import webbrowser
 
 import click
+from filter import filterProjects
 from search import searchProject
 from tabulate import tabulate
 from prettytable import PrettyTable
@@ -16,23 +17,7 @@ from prettytable import PrettyTable
 @click.option("--blackarch", "-b", is_flag=True, help="Filter by blackarch: present")
 def search(ctx, project, lang, price, free, online, offline, blackarch):
     projects = searchProject(ctx.obj["json"], project)
-    if lang:
-        projects = [project for project in projects if not lang.lower() != project["language"].lower()]
-
-    if price:
-        projects = [project for project in projects if "price" in project and project["price"] != "Free"]
-
-    if free:
-        projects = [project for project in projects if "price" in project and project["price"] == "Free"]
-
-    if online:
-        projects = [project for project in projects if "online" in project and project["online"] != "False"]
-
-    if offline:
-        projects = [project for project in projects if "online" in project and project["online"] == "False"]
-
-    if blackarch:
-        projects = [project for project in projects if "blackarch" in project and project["blackarch"] != ""]
+    projects = filterProjects(projects, lang, price, free, online, offline, blackarch)
 
     if len(projects) == 1:
         if "website" in projects[0]:
