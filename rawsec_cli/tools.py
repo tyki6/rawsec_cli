@@ -42,53 +42,17 @@ def getOperatingCategory(json):
 
 
 # List for each Items
-def getTools(json, category):
+def getToolsByCategory(json, category):
     return getToolsJson(json)[category]["tools"]
 
 
-def getRessources(json, category):
+def getRessourcesByCategory(json, category):
     return getRessourcesJson(json)[category]["resources"]
 
 
-def getCTF(json, category):
+def getCTFByCategory(json, category):
     return getCTFJson(json)[category]["ctf_platforms"]
 
 
-def getOperating(json, category):
+def getOperatingByCategory(json, category):
     return getOperatingJson(json)[category]["operating_systems"]
-
-def searchProjectTools(json, project):
-    listProjects = list()
-    for categoryTools in getToolsCategory(json):
-        for tool in getTools(json, categoryTools):
-            if project in tool["name"]:
-                listProjects.append(tool)
-    return listProjects
-
-def searchProjectRessources(json, project):
-    listProjects = list()
-    for categoryRessources in getRessourcesCategory(json):
-        for ressource in getRessources(json, categoryRessources):
-            if project in ressource["name"]:
-                listProjects.append(ressource)
-    return listProjects
-
-def searchProjectCTF(json, project):
-    listProjects = list()
-    for categoryCTF in getCTFCategory(json):
-        for ctf in getCTF(json, categoryCTF):
-            if project in ctf["name"]:
-                listProjects.append(ctf)
-    return listProjects
-
-def searchProjectOperating(json, project):
-    listProjects = list()
-    for categoryOperating in getOperatingCategory(json):
-        for operating in getOperating(json, categoryOperating):
-            print(operating)
-            if project in operating["os"]:
-                listProjects.append(operating)
-    return listProjects
-
-def searchProject(json, project):
-    return searchProjectTools(json, project) + searchProjectCTF(json, project) + searchProjectRessources(json, project)
