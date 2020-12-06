@@ -4,9 +4,17 @@
 [Rawsec's Cybersecurity](https://inventory.raw.pm/overview.html) Inventory is an inventory with 4 category(Tools, Resources, Ctf Platforms, OS).
 This cli can search a project, submit a project, list all projects by category, you can filter your research with option --help for more information.
 # Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Download](#download)
+- [Contribute](#contribute)
 
 # Features
--
+- search a project
+- list Tools, Resources, Ctf Platforms, OS
+- submit a project
+- filter by lang, price(Free or not), online or not, present on blackarch
 # Installation
 To install rawsec, simply use setup.py:
 ```
