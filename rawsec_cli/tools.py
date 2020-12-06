@@ -3,59 +3,64 @@ import requests
 
 def loadInventoryJson():
     r = requests.get("https://inventory.raw.pm/api/api.json")
-    # TODO error when call failed
+    if r.status_code != 200 or "tools" not in r.json():
+        return {}
     return r.json()
 
 
 # Items
 def getToolsJson(json):
-    return json["tools"]
+    return json["tools"] if "tools" in json else {}
 
 
 def getResourcesJson(json):
-    return json["resources"]
+    return json["resources"] if "resources" in json else {}
 
 
 def getCTFJson(json):
-    return json["ctf_platforms"]
+    return json["ctf_platforms"] if "ctf_platforms" in json else {}
 
 
 def getOperatingJson(json):
-    return json["operating_systems"]
+    return json["operating_systems"] if "operating_systems" in json else {}
 
 
 # Categroy For each Items
 def getToolsCategory(json):
-    return getToolsJson(json).keys()
+    return list(getToolsJson(json).keys())
 
 
 def getResourcesCategory(json):
-    return getResourcesJson(json).keys()
+    return list(getResourcesJson(json).keys())
 
 
 def getCTFCategory(json):
-    return getCTFJson(json).keys()
+    return list(getCTFJson(json).keys())
 
 
 def getOperatingCategory(json):
-    return getOperatingJson(json).keys()
+    return list(getOperatingJson(json).keys())
 
 
 # List for each Items
 def getToolsByCategory(json, category):
-    return getToolsJson(json)[category]["tools"]
+    tools = getToolsJson(json)
+    return tools[category]["tools"] if category in tools and "tools" in tools[category] else []
 
 
 def getResourcesByCategory(json, category):
-    return getResourcesJson(json)[category]["resources"]
+    resources = getResourcesJson(json)
+    return resources[category]["resources"] if category in resources and "resources" in resources[category] else []
 
 
 def getCTFByCategory(json, category):
-    return getCTFJson(json)[category]["ctf_platforms"]
+    ctf = getCTFJson(json)
+    return ctf[category]["ctf_platforms"] if category in ctf and "ctf_platforms" in ctf[category] else []
 
 
 def getOperatingByCategory(json, category):
-    return getOperatingJson(json)[category]["operating_systems"]
+    os = getOperatingJson(json)
+    return os[category]["operating_systems"] if category in os and "operating_systems" in os[category] else []
 
 
 def getAllTools(json):

@@ -4,7 +4,7 @@ tox:
 html:
 	cd docs && make html && cd ../
 test:
-	coverage run -p -m pytest
+	coverage run -m pytest
 coverage:
 	coverage report -m
 flake8:
