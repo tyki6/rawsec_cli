@@ -1,7 +1,7 @@
 import click
-from command.listCommand import listCommand
-from tools import loadInventoryJson
-from command.searchCommand import search
+from rawsec_cli.cli.command.listCommand import listCommand
+from rawsec_cli.tools import loadInventoryJson
+from rawsec_cli.cli.command.searchCommand import search
 
 
 @click.group()

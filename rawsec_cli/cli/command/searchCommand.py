@@ -1,8 +1,8 @@
 import webbrowser
 
 import click
-from filter import filterProjects
-from search import searchProject
+from rawsec_cli.filter import filterProjects
+from rawsec_cli.search import searchProject
 from tabulate import tabulate
 
 

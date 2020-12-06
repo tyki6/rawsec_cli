@@ -2,8 +2,8 @@ import sys
 
 import click
 from columnar import columnar
-from filter import filterProjects
-from tools import (
+from rawsec_cli.filter import filterProjects
+from rawsec_cli.tools import (
     getAllResources,
     getAllTools,
     getToolsByCategory,
