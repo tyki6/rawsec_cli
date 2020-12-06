@@ -1,5 +1,4 @@
 from unittest import TestCase
-from unittest.mock import patch
 
 from rawsec_cli.cli.cli import cli
 from click.testing import CliRunner

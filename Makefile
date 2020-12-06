@@ -7,9 +7,8 @@ test:
 	coverage run -m pytest
 coverage:
 	coverage report -m
-flake8:
-	black . --check
-	flake8 tests rawsec_cli
+lint:
+	pre-commit run --all-files
 docstr:
 	docstr-coverage rawsec_cli tests --skipinit --badge=img
 deploy:

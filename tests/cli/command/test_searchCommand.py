@@ -1,10 +1,7 @@
 from unittest import TestCase
 from unittest.mock import patch
-
-import click
 from rawsec_cli.cli.cli import cli
 from click.testing import CliRunner
-from rawsec_cli.cli.command.searchCommand import search
 
 
 class TestSearchCommand(TestCase):
