@@ -41,7 +41,7 @@ install-dev:
 full-install: install install-dev
 	cd docs && pip install -r requirements.txt && cd ..
 clean:
-	rm -rf docs/build .tox .pytest_cache build  myjwt.egg-info dist coverage_html_report   dumpSyntax .coverage .coverage.* .rnd
+	rm -rf docs/build .tox .pytest_cache build  rawsec.egg-info dist coverage_html_report   dumpSyntax .coverage .coverage.* .rnd
 freeze:
 	pip freeze > freeze.txt
 help:

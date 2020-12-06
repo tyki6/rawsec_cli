@@ -1,13 +1,14 @@
 import setuptools
+
 with open("README.md", "r") as f:
     long_description = f.read()
 f.close()
 
-with open('dev-requirements.txt', 'r') as f:
+with open("dev-requirements.txt", "r") as f:
     dev_requires = [line.strip() for line in f]
     f.close()
 
-with open('requirements.txt', 'r') as f:
+with open("requirements.txt", "r") as f:
     install_requires = [line.strip() for line in f]
     f.close()
 
@@ -21,14 +22,8 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/mBouamama/rawsec_cli",
     install_requires=install_requires,
-    entry_points={
-        "console_scripts": [
-            "rawsec = rawsec_cli.cli.cli:cli",
-        ],
-    },
-    extras_require={
-        "dev": dev_requires,
-    },
+    entry_points={"console_scripts": ["rawsec = rawsec_cli.cli.cli:cli"]},
+    extras_require={"dev": dev_requires},
     packages=setuptools.find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
