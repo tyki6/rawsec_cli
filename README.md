@@ -5,6 +5,7 @@
 This cli can search a project, submit a project, list all projects by category, you can filter your research with option --help for more information.
 # Table of Contents
 - [Features](#features)
+- [RoadMap](#roadmap)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Download](#download)
@@ -13,8 +14,18 @@ This cli can search a project, submit a project, list all projects by category, 
 # Features
 - search a project
 - list Tools, Resources, Ctf Platforms, OS
-- submit a project
 - filter by lang, price(Free or not), online or not, present on blackarch
+
+# RoadMap
+
+- [ ] submit command
+- [ ] Ci/CD
+- [ ] pypi package
+- [ ] github issue template
+- [ ] github action
+- [ ] better test for unit_test
+- [ ] docker
+- [ ] a better documentation
 # Installation
 To install rawsec, simply use setup.py:
 ```

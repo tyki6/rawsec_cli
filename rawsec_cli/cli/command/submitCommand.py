@@ -3,4 +3,5 @@ import click
 
 @click.group()
 def submit():
-    click.echo("coming soon")
+    type = click.prompt('Please enter a type', type=str)
+    category = click.prompt('Please enter a Category', type=str)
