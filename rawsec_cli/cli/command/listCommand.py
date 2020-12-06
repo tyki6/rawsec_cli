@@ -24,11 +24,6 @@ def listCommand():
     pass
 
 
-@click.group()
-def submit():
-    click.echo("submit")
-
-
 @listCommand.command("tools")
 @click.pass_context
 @click.argument("category", required=False)

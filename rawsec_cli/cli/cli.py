@@ -1,4 +1,5 @@
 import click
+from rawsec_cli.cli.command.submitCommand import submit
 from rawsec_cli.cli.command.listCommand import listCommand
 from rawsec_cli.tools import loadInventoryJson
 from rawsec_cli.cli.command.searchCommand import search
@@ -13,6 +14,6 @@ def cli(ctx):
 
 cli.add_command(search)
 cli.add_command(listCommand)
-
+cli.add_command(submit)
 if __name__ == "__main__":
     cli(obj={})
