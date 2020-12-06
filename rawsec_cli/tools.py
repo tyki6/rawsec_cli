@@ -45,22 +45,38 @@ def getOperatingCategory(json):
 # List for each Items
 def getToolsByCategory(json, category):
     tools = getToolsJson(json)
-    return tools[category]["tools"] if category in tools and "tools" in tools[category] else []
+    return (
+        tools[category]["tools"]
+        if category in tools and "tools" in tools[category]
+        else []
+    )
 
 
 def getResourcesByCategory(json, category):
     resources = getResourcesJson(json)
-    return resources[category]["resources"] if category in resources and "resources" in resources[category] else []
+    return (
+        resources[category]["resources"]
+        if category in resources and "resources" in resources[category]
+        else []
+    )
 
 
 def getCTFByCategory(json, category):
     ctf = getCTFJson(json)
-    return ctf[category]["ctf_platforms"] if category in ctf and "ctf_platforms" in ctf[category] else []
+    return (
+        ctf[category]["ctf_platforms"]
+        if category in ctf and "ctf_platforms" in ctf[category]
+        else []
+    )
 
 
 def getOperatingByCategory(json, category):
     os = getOperatingJson(json)
-    return os[category]["operating_systems"] if category in os and "operating_systems" in os[category] else []
+    return (
+        os[category]["operating_systems"]
+        if category in os and "operating_systems" in os[category]
+        else []
+    )
 
 
 def getAllTools(json):

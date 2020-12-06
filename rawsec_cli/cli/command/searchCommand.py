@@ -13,11 +13,17 @@ from tabulate import tabulate
 @click.option("--price", "-p", is_flag=True, help="Filter by Price=True")
 @click.option("--free", "-f", is_flag=True, help="Filter by Price: Free")
 @click.option("--online", "-on", is_flag=True, help="Filter by Online: True")
-@click.option("--offline", "-off", is_flag=True, help="Filter by Online: False")
-@click.option("--blackarch", "-b", is_flag=True, help="Filter by blackarch: present")
+@click.option(
+    "--offline", "-off", is_flag=True, help="Filter by Online: False"
+)
+@click.option(
+    "--blackarch", "-b", is_flag=True, help="Filter by blackarch: present"
+)
 def search(ctx, project, lang, price, free, online, offline, blackarch):
     projects = searchProject(ctx.obj["json"], project)
-    projects = filterProjects(projects, lang, price, free, online, offline, blackarch)
+    projects = filterProjects(
+        projects, lang, price, free, online, offline, blackarch
+    )
 
     if len(projects) == 1:
         if "website" in projects[0]:

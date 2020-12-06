@@ -36,8 +36,12 @@ def submit():
 @click.option("--price", "-p", is_flag=True, help="Filter by Price=True")
 @click.option("--free", "-f", is_flag=True, help="Filter by Price: Free")
 @click.option("--online", "-on", is_flag=True, help="Filter by Online: True")
-@click.option("--offline", "-off", is_flag=True, help="Filter by Online: False")
-@click.option("--blackarch", "-b", is_flag=True, help="Filter by blackarch: present")
+@click.option(
+    "--offline", "-off", is_flag=True, help="Filter by Online: False"
+)
+@click.option(
+    "--blackarch", "-b", is_flag=True, help="Filter by blackarch: present"
+)
 def tools(ctx, category, lang, price, free, online, offline, blackarch):
     wanted_keys = [
         "name",
@@ -59,7 +63,8 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
     else:
         projects = getAllTools(ctx.obj["json"])
     projects = [
-        {k: tool[k] if k in tool else "" for k in wanted_keys} for tool in projects
+        {k: tool[k] if k in tool else "" for k in wanted_keys}
+        for tool in projects
     ]
     projects = filterProjects(
         projects,
@@ -119,7 +124,14 @@ def resources(ctx, category, price, free):
 @click.option("--price", "-p", is_flag=True, help="Filter by Price=True")
 @click.option("--free", "-f", is_flag=True, help="Filter by Price=Free")
 def ctf(ctx, category, lang, price, free):
-    wanted_keys = ["name", "website", "source", "description", "language", "price"]
+    wanted_keys = [
+        "name",
+        "website",
+        "source",
+        "description",
+        "language",
+        "price",
+    ]
     if category and category not in getCTFCategory(json=ctx.obj["json"]):
         click.echo("Category available:")
         for category in getCTFCategory(json=ctx.obj["json"]):
@@ -131,7 +143,8 @@ def ctf(ctx, category, lang, price, free):
         projects = getAllCTF(ctx.obj["json"])
 
     projects = [
-        {k: tool[k] if k in tool else "" for k in wanted_keys} for tool in projects
+        {k: tool[k] if k in tool else "" for k in wanted_keys}
+        for tool in projects
     ]
     projects = filterProjects(projects, lang=lang, price=price, free=free)
     projects = [list(project.values()) for project in projects]
@@ -155,9 +168,13 @@ def os(ctx, category, base):
         projects = getOperatingByCategory(ctx.obj["json"], category)
     else:
         projects = getAllOperating(ctx.obj["json"])
-    projects = [{k: os[k] if k in os else "" for k in wanted_keys} for os in projects]
+    projects = [
+        {k: os[k] if k in os else "" for k in wanted_keys} for os in projects
+    ]
     if base:
-        projects = [os for os in projects if os["base"].lower() == base.lower()]
+        projects = [
+            os for os in projects if os["base"].lower() == base.lower()
+        ]
     projects = [list(project.values()) for project in projects]
     table = columnar(projects, headers=wanted_keys)
     click.echo(table)
