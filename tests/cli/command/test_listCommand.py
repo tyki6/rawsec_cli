@@ -13,8 +13,7 @@ class TestListCommand(TestCase):
             "ctf_platforms": {"binary_exploitation": {"ctf_platforms": [{"name": "ctf_platforms"}]}}
         }
 
-    @patch("rawsec_cli.search.searchProject", return_value=[{"name": "tools", "website": "test"}])
-    def testSearchTools(self, m):
+    def testSearchTools(self):
         result = CliRunner().invoke(cli, ["list", "tools", "binary_exploitation"], catch_exceptions=False)
         self.assertEqual(result.exit_code, 0)
         self.assertIn('tools', result.output)
@@ -23,4 +22,40 @@ class TestListCommand(TestCase):
         self.assertEqual(result.exit_code, 1)
 
         result = CliRunner().invoke(cli, ["list", "tools"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+
+    def testSearchResource(self):
+        result = CliRunner().invoke(cli, ["list", "resources", "challenges_platforms"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn('name', result.output)
+
+        result = CliRunner().invoke(cli, ["list", "resources", "azdazdzd"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 1)
+
+        result = CliRunner().invoke(cli, ["list", "resources"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+
+    def testSearchCtf(self):
+        result = CliRunner().invoke(cli, ["list", "ctf", "attack_defense"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn('name', result.output)
+
+        result = CliRunner().invoke(cli, ["list", "ctf", "azdazdzd"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 1)
+
+        result = CliRunner().invoke(cli, ["list", "ctf"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+
+    def testSearchOs(self):
+        result = CliRunner().invoke(cli, ["list", "os", "maintained"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn('os', result.output)
+
+        result = CliRunner().invoke(cli, ["list", "os", "azdazdzd"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 1)
+
+        result = CliRunner().invoke(cli, ["list", "os"], catch_exceptions=False)
+        self.assertEqual(result.exit_code, 0)
+
+        result = CliRunner().invoke(cli, ["list", "os", "--base", "Ubuntu"], catch_exceptions=False)
         self.assertEqual(result.exit_code, 0)
