@@ -19,7 +19,3 @@ exclude = '''
   | dist
 )/
 '''
-
-
-[tool.isort]
-profile = "attrs"
