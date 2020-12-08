@@ -15,5 +15,6 @@ def cli(ctx):
 cli.add_command(search)
 cli.add_command(listCommand)
 cli.add_command(submit)
+
 if __name__ == "__main__":
     cli(obj={})
