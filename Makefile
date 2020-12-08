@@ -1,6 +1,6 @@
 tox:
-	pip install tox
-	tox --recreate
+	pip install tox tox-gh-actions
+	tox
 html:
 	cd docs && make html && cd ../
 test:
@@ -39,7 +39,7 @@ install-dev:
 	pip install -r dev-requirements.txt
 
 full-install: install install-dev
-	cd docs && pip install -r requirements.txt && cd ..
+
 clean:
 	rm -rf docs/build .tox .pytest_cache build  rawsec.egg-info dist coverage_html_report   dumpSyntax .coverage .coverage.* .rnd
 freeze:

@@ -1,0 +1,19 @@
+name: Lint
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  lint:
+    runs-on: "ubuntu-latest"
+    name: "Run pre-commit"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: "actions/setup-python@v2"
+      - name: "Install dependencies"
+        run: |
+          pip install pre-commit
+      - name: "Run pre-commit"
+        run: "make lint"
