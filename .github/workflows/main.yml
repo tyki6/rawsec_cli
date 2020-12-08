@@ -16,6 +16,20 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
+  lint:
+    runs-on: "ubuntu-latest"
+    name: "Python 3.9"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: "actions/setup-python@v2"
+      - name: "Install dependencies"
+        run: |
+          pip install pre-commit
+      - name: "Run pre-commit"
+        run: "make lint"
+        with:
+          fail_ci_if_error: true
+
   tests:
     runs-on: "ubuntu-latest"
     name: "Python ${{ matrix.python-version }}"
@@ -40,8 +54,8 @@ jobs:
       - name: "Get coverage"
         run: |
           set -xe
-          python -m coverage combine
-          python -m coverage xml
+          coverage combine
+          coverage xml
         if: "contains(env.USING_COVERAGE, matrix.python-version)"
       - name: Upload coverage to Codecov
         if: "contains(env.USING_COVERAGE, matrix.python-version)"
