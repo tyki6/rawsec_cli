@@ -1,5 +1,14 @@
 # rawsec_cli
-
+[![mBouamama](https://github.com/mBouamama/rawsec_cli/workflows/Unit%20Test/badge.svg)](https://github.com/mBouamama/rawsec_cli)
+[![PyPI](https://img.shields.io/pypi/v/rawsec)](https://pypi.org/project/rawsec/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rawsec)](https://pypi.org/project/rawsec/)
+[![PyPI - Download](https://pepy.tech/badge/rawsec)](https://pepy.tech/project/rawsec)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/mBouamama/rawsec_cli)](https://github.com/mBouamama/rawsec_cli/releases)
+[![Documentation Status](https://readthedocs.org/projects/rawsec_cli/badge/?version=latest)](https://rawsec_cli.readthedocs.io/en/latest/?badge=latest)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/mBouamama/rawsec_cli)
+[![codecov](https://codecov.io/gh/mBouamama/rawsec_cli/branch/main/graph/badge.svg?token=YKclZIzF6Z)](https://codecov.io/gh/mBouamama/rawsec_cli)
+[![Updates](https://pyup.io/repos/github/mBouamama/rawsec_cli/shield.svg)](https://pyup.io/repos/github/mBouamama/rawsec_cli/)
+[![Known Vulnerabilities](https://snyk.io/test/github/mBouamama/rawsec_cli/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/mBouamama/rawsec_cli?targetFile=requirements.txt)
 # Introduction
 [Rawsec's Cybersecurity](https://inventory.raw.pm/overview.html) Inventory is an inventory with 4 category(Tools, Resources, Ctf Platforms, OS).
 This cli can search a project,list all projects by category, you can filter your research with option --help for more information.
