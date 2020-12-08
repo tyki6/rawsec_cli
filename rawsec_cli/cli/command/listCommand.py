@@ -48,6 +48,7 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
         "online",
         "blackarch",
     ]
+
     if category and category not in getToolsCategory(json=ctx.obj["json"]):
         click.echo("Category available:")
         for category in getToolsCategory(json=ctx.obj["json"]):
