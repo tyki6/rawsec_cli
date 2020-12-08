@@ -1,0 +1,21 @@
+name: Extra
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  snyk:
+    runs-on: "ubuntu-latest"
+    name: "Snyk"
+    steps:
+      - name: Snyk
+        uses: snyk/actions@0.3.0
+
+  code-climate:
+    runs-on: "ubuntu-latest"
+    name: "Snyk"
+    steps:
+      - name: Code Climate Coverage Action
+        uses: paambaati/codeclimate-action@v2.7.4
