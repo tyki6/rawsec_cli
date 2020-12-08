@@ -17,3 +17,12 @@ jobs:
           pip install pre-commit
       - name: "Run pre-commit"
         run: "make lint"
+  hadolint:
+    runs-on: "ubuntu-latest"
+    name: "Hadolint Action"
+    steps:
+      - uses: actions/checkout@master
+      - name: Hadolint Action
+        uses: brpaz/hadolint-action@v1.2.1
+        with:
+          dockerfile: Dockerfile
