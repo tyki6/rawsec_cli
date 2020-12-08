@@ -27,8 +27,7 @@ jobs:
           pip install pre-commit
       - name: "Run pre-commit"
         run: "make lint"
-        with:
-          fail_ci_if_error: true
+
 
   tests:
     runs-on: "ubuntu-latest"
