@@ -5,8 +5,8 @@
 
 Rawsec Cli
 =================================
-.. image:: https://github.com/mBouamama/rawsec_cli/workflows/unit_test/badge.svg?style=shield
-    :target: https://circleci.com/gh/mBouamama/MyJWT.svg?style=shield
+.. image:: https://github.com/mBouamama/rawsec_cli/workflows/Unit%20Test/badge.svg
+    :target: https://github.com/mBouamama/rawsec_cli
 
 .. image:: https://img.shields.io/pypi/v/rawsec
     :target: https://pypi.org/project/rawsec/
