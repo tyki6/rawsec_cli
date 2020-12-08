@@ -21,6 +21,7 @@ jobs:
     runs-on: "ubuntu-latest"
     name: "Hadolint Action"
     steps:
+      - uses: actions/checkout@master
       - name: Hadolint Action
         uses: brpaz/hadolint-action@v1.2.1
         with:

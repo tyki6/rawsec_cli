@@ -5,7 +5,7 @@ COPY requirements.txt .
 COPY dev-requirements.txt .
 RUN pip install --no-cache-dir --requirement requirements.txt
 
-ADD rawsec_cli rawsec_cli
+COPY rawsec_cli .
 COPY setup.py .
 COPY README.md .
 
