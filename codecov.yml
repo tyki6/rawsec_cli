@@ -6,12 +6,14 @@ coverage:
   range: "70...100"
   status:
     project:
-      default: fals
+      default: false
       tests:
         target: 100%
-        paths: "tests/"
-      app:  # declare a new status context "app"
-        paths: "!tests/"  # remove all files in "tests/"
+        paths:
+          - "tests/"
+      app:
+        paths:
+          - "!tests/"
     patch: off
     changes: no
 parsers:
