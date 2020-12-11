@@ -14,6 +14,10 @@ Rawsec Cli
 .. image:: https://img.shields.io/pypi/pyversions/rawsec.svg
     :target: https://pypi.org/project/rawsec/
 
+.. image:: https://results.pre-commit.ci/badge/github/mBouamama/rawsec_cli/main.svg
+   :target: https://results.pre-commit.ci/latest/github/mBouamama/rawsec_cli/main
+   :alt: pre-commit.ci status
+
 .. image:: https://pepy.tech/badge/rawsec
     :target: https://pepy.tech/project/rawsec
 
