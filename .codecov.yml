@@ -4,9 +4,15 @@ coverage:
   precision: 2
   round: down
   range: "70...100"
-status:
-    project: yes
-    patch: no
+  status:
+    project:
+      default: fals
+      tests:
+        target: 100%
+        paths: "tests/"
+      app:  # declare a new status context "app"
+        paths: "!tests/"  # remove all files in "tests/"
+    patch: off
     changes: no
 parsers:
   gcov:
