@@ -10,7 +10,6 @@ repos:
     -   id: name-tests-test
         args: ['--django']
     -   id: requirements-txt-fixer
-    -   id: double-quote-string-fixer
 -   repo: https://gitlab.com/pycqa/flake8
     rev: 3.8.4
     hooks:
