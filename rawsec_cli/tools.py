@@ -2,27 +2,27 @@ import requests
 
 
 def loadInventoryJson():
-    r = requests.get("https://inventory.raw.pm/api/api.json")
-    if r.status_code != 200 or "tools" not in r.json():
+    r = requests.get('https://inventory.raw.pm/api/api.json')
+    if r.status_code != 200 or 'tools' not in r.json():
         return {}
     return r.json()
 
 
 # Items
 def getToolsJson(json):
-    return json["tools"] if "tools" in json else {}
+    return json['tools'] if 'tools' in json else {}
 
 
 def getResourcesJson(json):
-    return json["resources"] if "resources" in json else {}
+    return json['resources'] if 'resources' in json else {}
 
 
 def getCTFJson(json):
-    return json["ctf_platforms"] if "ctf_platforms" in json else {}
+    return json['ctf_platforms'] if 'ctf_platforms' in json else {}
 
 
 def getOperatingJson(json):
-    return json["operating_systems"] if "operating_systems" in json else {}
+    return json['operating_systems'] if 'operating_systems' in json else {}
 
 
 # Categroy For each Items
@@ -46,8 +46,8 @@ def getOperatingCategory(json):
 def getToolsByCategory(json, category):
     tools = getToolsJson(json)
     return (
-        tools[category]["tools"]
-        if category in tools and "tools" in tools[category]
+        tools[category]['tools']
+        if category in tools and 'tools' in tools[category]
         else []
     )
 
@@ -55,8 +55,8 @@ def getToolsByCategory(json, category):
 def getResourcesByCategory(json, category):
     resources = getResourcesJson(json)
     return (
-        resources[category]["resources"]
-        if category in resources and "resources" in resources[category]
+        resources[category]['resources']
+        if category in resources and 'resources' in resources[category]
         else []
     )
 
@@ -64,8 +64,8 @@ def getResourcesByCategory(json, category):
 def getCTFByCategory(json, category):
     ctf = getCTFJson(json)
     return (
-        ctf[category]["ctf_platforms"]
-        if category in ctf and "ctf_platforms" in ctf[category]
+        ctf[category]['ctf_platforms']
+        if category in ctf and 'ctf_platforms' in ctf[category]
         else []
     )
 
@@ -73,8 +73,8 @@ def getCTFByCategory(json, category):
 def getOperatingByCategory(json, category):
     os = getOperatingJson(json)
     return (
-        os[category]["operating_systems"]
-        if category in os and "operating_systems" in os[category]
+        os[category]['operating_systems']
+        if category in os and 'operating_systems' in os[category]
         else []
     )
 
