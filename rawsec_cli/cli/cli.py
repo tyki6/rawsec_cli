@@ -10,12 +10,12 @@ from rawsec_cli.tools import loadInventoryJson
 @click.pass_context
 def cli(ctx):
     ctx.ensure_object(dict)
-    ctx.obj['json'] = loadInventoryJson()
+    ctx.obj["json"] = loadInventoryJson()
 
 
 cli.add_command(search)
 cli.add_command(listCommand)
 cli.add_command(submit)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     cli(obj={})
