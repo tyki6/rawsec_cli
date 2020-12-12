@@ -35,7 +35,7 @@ def listCommand():
 @click.argument("category", required=False)
 @click.option("--lang", "-l", help="Filter by Language")
 @click.option(
-    "--price",
+    "--paid",
     "-p",
     is_flag=True,
     help="Filter by Price, when price is equal to paid",
@@ -64,7 +64,7 @@ def listCommand():
     is_flag=True,
     help="Filter by blackarch when package is present on blackarch",
 )
-def tools(ctx, category, lang, price, free, online, offline, blackarch):
+def tools(ctx, category, lang, paid, free, online, offline, blackarch):
     """
     List all tools inventoried on rawsec, you can add category.\n
     full documentation: https://rawsec-cli.readthedocs.io/
@@ -72,7 +72,7 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
     :param ctx: click context
     :param str category: category tools
     :param str lang: filter by lang
-    :param bool price: paid
+    :param bool paid: paid
     :param bool free: free
     :param bool online:
     :param bool offline:
@@ -85,7 +85,7 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
         "source",
         "description",
         "language",
-        "price",
+        "paid",
         "online",
         "blackarch",
     ]
@@ -106,7 +106,7 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
     projects = filterProjects(
         projects,
         lang=lang,
-        price=price,
+        paid=paid,
         free=free,
         online=online,
         offline=offline,
@@ -122,7 +122,7 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
 @click.pass_context
 @click.argument("category", required=False)
 @click.option(
-    "--price",
+    "--paid",
     "-p",
     is_flag=True,
     help="Filter by Price, when price is equal to paid",
@@ -133,14 +133,14 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
     is_flag=True,
     help="Filter by Price, when price is equal to free",
 )
-def resources(ctx, category, price, free):
+def resources(ctx, category, paid, free):
     """
     List all resources inventoried on rawsec, you can add category.\n
     full documentation: https://rawsec-cli.readthedocs.io/
     \f
     :param ctx: context
     :param str category:
-    :param bool price:
+    :param bool paid:
     :param bool free:
     :return:
     """
@@ -155,7 +155,7 @@ def resources(ctx, category, price, free):
     else:
         projects = getAllResources(ctx.obj["json"])
 
-    projects = filterProjects(projects, price=price, free=free)
+    projects = filterProjects(projects, paid=paid, free=free)
     resourcesList = list()
     for resource in projects:
         for link in resource["links"]:
@@ -179,7 +179,7 @@ def resources(ctx, category, price, free):
 @click.argument("category", required=False)
 @click.option("--lang", "-l", help="Filter by Language")
 @click.option(
-    "--price",
+    "--paid",
     "-p",
     is_flag=True,
     help="Filter by Price, when price is equal to paid",
@@ -190,7 +190,7 @@ def resources(ctx, category, price, free):
     is_flag=True,
     help="Filter by Price, when price is equal to free",
 )
-def ctf(ctx, category, lang, price, free):
+def ctf(ctx, category, lang, paid, free):
     """
     List all ctf platforms inventoried on rawsec, you can add category.\n
     full documentation: https://rawsec-cli.readthedocs.io/
@@ -198,7 +198,7 @@ def ctf(ctx, category, lang, price, free):
     :param ctx: click context
     :param str category:
     :param str lang:
-    :param bool price:
+    :param bool paid:
     :param bool free:
     :return:
     """
@@ -224,7 +224,7 @@ def ctf(ctx, category, lang, price, free):
         {k: tool[k] if k in tool else "" for k in wanted_keys}
         for tool in projects
     ]
-    projects = filterProjects(projects, lang=lang, price=price, free=free)
+    projects = filterProjects(projects, lang=lang, paid=paid, free=free)
     projects = [list(project.values()) for project in projects]
     table = columnar(projects, headers=wanted_keys)
     click.echo(table)
