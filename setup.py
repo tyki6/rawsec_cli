@@ -13,7 +13,7 @@ with open("requirements.txt") as f:
     f.close()
 
 setuptools.setup(
-    name="rawsec",
+    name="rawsec-cli",
     version="1.0.0",
     author="mBouamama",
     author_email="matthieubouamama@gmail.com",
@@ -22,7 +22,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/mBouamama/rawsec_cli",
     install_requires=install_requires,
-    entry_points={"console_scripts": ["rawsec = rawsec_cli.cli.cli:cli"]},
+    entry_points={"console_scripts": ["rawsec-cli = rawsec_cli.cli.cli:cli"]},
     extras_require={"dev": dev_requires},
     packages=setuptools.find_packages(),
     classifiers=[
