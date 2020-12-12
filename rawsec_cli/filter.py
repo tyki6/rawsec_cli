@@ -1,3 +1,4 @@
+"""Filter file"""
 def filterProjects(
     projects,
     lang=None,
@@ -7,6 +8,18 @@ def filterProjects(
     offline=False,
     blackarch=False,
 ):
+    """
+    Filter method.
+    :param list projects: all projects
+    :param str lang:
+    :param bool price:
+    :param bool free:
+    :param bool online:
+    :param bool offline:
+    :param bool blackarch:
+    :return: project filter
+    :rtype: list
+    """
     if lang is not None and lang != "":
         projects = [
             project

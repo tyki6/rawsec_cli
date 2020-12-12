@@ -1,3 +1,4 @@
+"""Test file for searchCommand File"""
 from unittest import TestCase
 from unittest.mock import patch
 
@@ -7,7 +8,9 @@ from rawsec_cli.cli.cli import cli
 
 
 class TestSearchCommand(TestCase):
+    """Test searchCommand class"""
     def setUp(self):
+        """setup test"""
         self.json = {
             "tools": {
                 "binary_exploitation": {
@@ -34,6 +37,7 @@ class TestSearchCommand(TestCase):
         return_value=[{"name": "tools", "website": "test"}],
     )
     def testSearch(self, m):
+        """ test search function"""
         result = CliRunner().invoke(
             cli,
             ["search", "tools"],

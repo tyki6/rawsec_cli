@@ -30,6 +30,9 @@ Rawsec Cli
 .. image:: https://codecov.io/gh/mBouamama/rawsec_cli/branch/main/graph/badge.svg?token=YKclZIzF6Z
     :target: https://codecov.io/gh/mBouamama/rawsec_cli
 
+.. image:: /../../img/docstr_coverage_badge.svg
+    :target: https://github.com/HunterMcGushion/docstr_coverage.git
+
 .. image:: https://snyk.io/test/github/mBouamama/rawsec_cli/badge.svg?targetFile=requirements.txt
     :target: https://snyk.io/test/github/mBouamama/rawsec_cli?targetFile=requirements.txt
 

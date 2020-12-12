@@ -1,5 +1,5 @@
 codecov:
-  require_ci_to_pass: yes
+  require_ci_to_pass: true
 coverage:
   precision: 2
   round: down
@@ -14,19 +14,19 @@ coverage:
       app:
         paths:
           - "!tests/"
-    patch: off
-    changes: no
+    patch: false
+    changes: false
 parsers:
   gcov:
     branch_detection:
-      conditional: yes
-      loop: yes
-      method: no
-      macro: no
+      conditional: true
+      loop: true
+      method: false
+      macro: false
 comment:
   layout: "reach,diff,flags,tree"
   behavior: default
-  require_changes: yes
+  require_changes: true
 ignore:
   - tests/*
   - docs/*
