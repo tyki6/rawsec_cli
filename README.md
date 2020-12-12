@@ -6,6 +6,7 @@
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/mBouamama/rawsec_cli)](https://github.com/mBouamama/rawsec_cli/releases)
 [![Documentation Status](https://readthedocs.org/projects/rawsec_cli/badge/?version=latest)](https://rawsec_cli.readthedocs.io/en/latest/?badge=latest)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/mBouamama/rawsec_cli)
+[![docstr_coverage](./img/docstr_coverage_badge.svg)](https://github.com/HunterMcGushion/docstr_coverage.git)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/mBouamama/rawsec_cli/main.svg)](https://results.pre-commit.ci/latest/github/mBouamama/rawsec_cli/main)
 [![codecov](https://codecov.io/gh/mBouamama/rawsec_cli/branch/main/graph/badge.svg?token=YKclZIzF6Z)](https://codecov.io/gh/mBouamama/rawsec_cli)
 [![Updates](https://pyup.io/repos/github/mBouamama/rawsec_cli/shield.svg)](https://pyup.io/repos/github/mBouamama/rawsec_cli/)

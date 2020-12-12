@@ -1,10 +1,14 @@
+"""Test file for filter File"""
 from unittest import TestCase
 
 from rawsec_cli.filter import filterProjects
 
 
 class TestFilter(TestCase):
+    """Test filter class"""
+
     def setUp(self):
+        """setup test"""
         self.projects = [
             {
                 "name": "test",
@@ -25,6 +29,7 @@ class TestFilter(TestCase):
         ]
 
     def testFilterProjects(self):
+        """ test FilterProjects function"""
         projects = filterProjects(
             self.projects,
             lang="Python",

@@ -1,3 +1,4 @@
+"""List command cli file"""
 import sys
 
 import click
@@ -20,6 +21,12 @@ from rawsec_cli.tools import getToolsCategory
 
 @click.group("list")
 def listCommand():
+    """
+    List projects by category (tools, resources, ctf, os).\n
+    full documentation: https://rawsec-cli.readthedocs.io/
+    \f
+    :return:
+    """
     pass
 
 
@@ -27,22 +34,51 @@ def listCommand():
 @click.pass_context
 @click.argument("category", required=False)
 @click.option("--lang", "-l", help="Filter by Language")
-@click.option("--price", "-p", is_flag=True, help="Filter by Price=True")
-@click.option("--free", "-f", is_flag=True, help="Filter by Price: Free")
-@click.option("--online", "-on", is_flag=True, help="Filter by Online: True")
+@click.option(
+    "--price",
+    "-p",
+    is_flag=True,
+    help="Filter by Price, when price is equal to paid",
+)
+@click.option(
+    "--free",
+    "-f",
+    is_flag=True,
+    help="Filter by Price, when price is equal to free",
+)
+@click.option(
+    "--online",
+    "-on",
+    is_flag=True,
+    help="Filter by Online, when online is equal to true",
+)
 @click.option(
     "--offline",
     "-off",
     is_flag=True,
-    help="Filter by Online: False",
+    help="Filter by Online, when online is equal to false",
 )
 @click.option(
     "--blackarch",
     "-b",
     is_flag=True,
-    help="Filter by blackarch: present",
+    help="Filter by blackarch when package is present on blackarch",
 )
 def tools(ctx, category, lang, price, free, online, offline, blackarch):
+    """
+    List all tools inventoried on rawsec, you can add category.\n
+    full documentation: https://rawsec-cli.readthedocs.io/
+    \f
+    :param ctx: click context
+    :param str category: category tools
+    :param str lang: filter by lang
+    :param bool price: paid
+    :param bool free: free
+    :param bool online:
+    :param bool offline:
+    :param bool blackarch: present or not
+    :return:
+    """
     wanted_keys = [
         "name",
         "website",
@@ -85,9 +121,29 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
 @listCommand.command("resources")
 @click.pass_context
 @click.argument("category", required=False)
-@click.option("--price", "-p", is_flag=True, help="Filter by Price=True")
-@click.option("--free", "-f", is_flag=True, help="Filter by Price: Free")
+@click.option(
+    "--price",
+    "-p",
+    is_flag=True,
+    help="Filter by Price, when price is equal to paid",
+)
+@click.option(
+    "--free",
+    "-f",
+    is_flag=True,
+    help="Filter by Price, when price is equal to free",
+)
 def resources(ctx, category, price, free):
+    """
+    List all resources inventoried on rawsec, you can add category.\n
+    full documentation: https://rawsec-cli.readthedocs.io/
+    \f
+    :param ctx: context
+    :param str category:
+    :param bool price:
+    :param bool free:
+    :return:
+    """
     wanted_keys = ["name", "website", "source", "description", "price"]
     if category and category not in getResourcesCategory(json=ctx.obj["json"]):
         click.echo("Category available:")
@@ -122,9 +178,30 @@ def resources(ctx, category, price, free):
 @click.pass_context
 @click.argument("category", required=False)
 @click.option("--lang", "-l", help="Filter by Language")
-@click.option("--price", "-p", is_flag=True, help="Filter by Price=True")
-@click.option("--free", "-f", is_flag=True, help="Filter by Price=Free")
+@click.option(
+    "--price",
+    "-p",
+    is_flag=True,
+    help="Filter by Price, when price is equal to paid",
+)
+@click.option(
+    "--free",
+    "-f",
+    is_flag=True,
+    help="Filter by Price, when price is equal to free",
+)
 def ctf(ctx, category, lang, price, free):
+    """
+    List all ctf platforms inventoried on rawsec, you can add category.\n
+    full documentation: https://rawsec-cli.readthedocs.io/
+    \f
+    :param ctx: click context
+    :param str category:
+    :param str lang:
+    :param bool price:
+    :param bool free:
+    :return:
+    """
     wanted_keys = [
         "name",
         "website",
@@ -159,6 +236,15 @@ def ctf(ctx, category, lang, price, free):
 @click.argument("category", required=False)
 @click.option("--base", "-b", help="Filter by base")
 def os(ctx, category, base):
+    """
+    List all os inventoried on rawsec, you can add category.\n
+    full documentation: https://rawsec-cli.readthedocs.io/
+    \f
+    :param ctx: click context
+    :param str category:
+    :param str base:
+    :return:
+    """
     wanted_keys = ["os", "base", "description", "link"]
     if category and category not in getOperatingCategory(json=ctx.obj["json"]):
         click.echo("Category available:")
