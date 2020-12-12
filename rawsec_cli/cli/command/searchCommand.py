@@ -44,7 +44,7 @@ from rawsec_cli.search import searchProject
 )
 def search(ctx, project, lang, price, free, online, offline, blackarch):
     """
-    Search a project inventoried on rawsec.\n
+    Search a project inventoried on Rawsec Cybersecurity Inventory.\n
     Search in name and description.\n
     full documentation: https://rawsec-cli.readthedocs.io/
     \f
