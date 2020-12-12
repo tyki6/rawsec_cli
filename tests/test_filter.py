@@ -6,6 +6,7 @@ from rawsec_cli.filter import filterProjects
 
 class TestFilter(TestCase):
     """Test filter class"""
+
     def setUp(self):
         """setup test"""
         self.projects = [

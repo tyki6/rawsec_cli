@@ -8,6 +8,7 @@ from rawsec_cli.cli.cli import cli
 
 class TestListCommand(TestCase):
     """Test listCommand class"""
+
     def setUp(self):
         """setup test"""
         self.json = {

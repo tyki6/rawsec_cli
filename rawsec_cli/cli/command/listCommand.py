@@ -34,9 +34,24 @@ def listCommand():
 @click.pass_context
 @click.argument("category", required=False)
 @click.option("--lang", "-l", help="Filter by Language")
-@click.option("--price", "-p", is_flag=True, help="Filter by Price, when price is equal to paid")
-@click.option("--free", "-f", is_flag=True, help="Filter by Price, when price is equal to free")
-@click.option("--online", "-on", is_flag=True, help="Filter by Online, when online is equal to true")
+@click.option(
+    "--price",
+    "-p",
+    is_flag=True,
+    help="Filter by Price, when price is equal to paid",
+)
+@click.option(
+    "--free",
+    "-f",
+    is_flag=True,
+    help="Filter by Price, when price is equal to free",
+)
+@click.option(
+    "--online",
+    "-on",
+    is_flag=True,
+    help="Filter by Online, when online is equal to true",
+)
 @click.option(
     "--offline",
     "-off",
@@ -106,8 +121,18 @@ def tools(ctx, category, lang, price, free, online, offline, blackarch):
 @listCommand.command("resources")
 @click.pass_context
 @click.argument("category", required=False)
-@click.option("--price", "-p", is_flag=True, help="Filter by Price, when price is equal to paid")
-@click.option("--free", "-f", is_flag=True, help="Filter by Price, when price is equal to free")
+@click.option(
+    "--price",
+    "-p",
+    is_flag=True,
+    help="Filter by Price, when price is equal to paid",
+)
+@click.option(
+    "--free",
+    "-f",
+    is_flag=True,
+    help="Filter by Price, when price is equal to free",
+)
 def resources(ctx, category, price, free):
     """
     List all resources inventoried on rawsec, you can add category.\n
@@ -153,8 +178,18 @@ def resources(ctx, category, price, free):
 @click.pass_context
 @click.argument("category", required=False)
 @click.option("--lang", "-l", help="Filter by Language")
-@click.option("--price", "-p", is_flag=True, help="Filter by Price, when price is equal to paid")
-@click.option("--free", "-f", is_flag=True, help="Filter by Price, when price is equal to free")
+@click.option(
+    "--price",
+    "-p",
+    is_flag=True,
+    help="Filter by Price, when price is equal to paid",
+)
+@click.option(
+    "--free",
+    "-f",
+    is_flag=True,
+    help="Filter by Price, when price is equal to free",
+)
 def ctf(ctx, category, lang, price, free):
     """
     List all ctf platforms inventoried on rawsec, you can add category.\n

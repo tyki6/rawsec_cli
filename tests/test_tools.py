@@ -24,6 +24,7 @@ from rawsec_cli.tools import loadInventoryJson
 
 class TestTools(TestCase):
     """Test tools class"""
+
     def setUp(self):
         """setup test"""
         self.json = {

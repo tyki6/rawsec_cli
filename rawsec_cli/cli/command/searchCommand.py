@@ -12,9 +12,24 @@ from rawsec_cli.search import searchProject
 @click.argument("project")
 @click.pass_context
 @click.option("--lang", "-l", help="Filter by Language")
-@click.option("--price", "-p", is_flag=True, help="Filter by Price, when price is equal to paid")
-@click.option("--free", "-f", is_flag=True, help="Filter by Price, when price is equal to free")
-@click.option("--online", "-on", is_flag=True, help="Filter by Online, when online is equal to true")
+@click.option(
+    "--price",
+    "-p",
+    is_flag=True,
+    help="Filter by Price, when price is equal to paid",
+)
+@click.option(
+    "--free",
+    "-f",
+    is_flag=True,
+    help="Filter by Price, when price is equal to free",
+)
+@click.option(
+    "--online",
+    "-on",
+    is_flag=True,
+    help="Filter by Online, when online is equal to true",
+)
 @click.option(
     "--offline",
     "-off",

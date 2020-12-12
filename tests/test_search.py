@@ -10,6 +10,7 @@ from rawsec_cli.search import searchProjectTools
 
 class TestSearch(TestCase):
     """Test search class"""
+
     def setUp(self):
         """setup test"""
         self.json = {
