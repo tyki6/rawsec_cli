@@ -1,5 +1,7 @@
 import setuptools
 
+from rawsec_cli import __version__
+
 with open("README.md") as f:
     long_description = f.read()
 f.close()
@@ -14,7 +16,7 @@ with open("requirements.txt") as f:
 
 setuptools.setup(
     name="rawsec-cli",
-    version="1.0.0",
+    version=__version__,
     author="mBouamama",
     author_email="matthieubouamama@gmail.com",
     description="Cli for searching tools & resources on rawsec's CyberSecrity Inventory",
