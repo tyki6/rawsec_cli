@@ -11,7 +11,10 @@
 [![codecov](https://codecov.io/gh/mBouamama/rawsec_cli/branch/main/graph/badge.svg?token=YKclZIzF6Z)](https://codecov.io/gh/mBouamama/rawsec_cli)
 [![Updates](https://pyup.io/repos/github/mBouamama/rawsec_cli/shield.svg)](https://pyup.io/repos/github/mBouamama/rawsec_cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/mBouamama/rawsec_cli/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/mBouamama/rawsec_cli?targetFile=requirements.txt)
+[![Rawsec's CyberSecurity Inventory](https://inventory.raw.pm/img/badges/Rawsec-inventoried-FF5050_flat.svg)](https://inventory.raw.pm/tools.html#rawsec_cli)
+
 # Introduction
+
 [Rawsec's Cybersecurity](https://inventory.raw.pm/overview.html) Inventory is an inventory with 4 category(Tools, Resources, Ctf Platforms, OS).
 This cli can search a project,list all projects by category, you can filter your research with option --help for more information.
 # Table of Contents
@@ -23,6 +26,7 @@ This cli can search a project,list all projects by category, you can filter your
 - [Contribute](#contribute)
 
 # Features
+
 - search a project
 - list Tools, Resources, Ctf Platforms, OS
 - filter by lang, price(Free or not), online or not, present on blackarch
@@ -39,16 +43,21 @@ This cli can search a project,list all projects by category, you can filter your
 - [X] a better documentation
 
 # Installation
-To install rawsec, simply use pip:
+
+To install rawsec-cli, simply use pip:
+
 ```
 pip install rawsec-cli
 ```
-To run rawsec from a docker image, run:
+
+To run rawsec-cli from a docker image, run:
+
 ```
 docker run -it docker.pkg.github.com/mbouamama/rawsec_cli/rawsec:latest rawsec-cli --help
 ```
 
-To install rawsec, on git:
+To install rawsec-cli, on git:
+
 ```
 git clone https://github.com/mBouamama/rawsec_cli.git
 cd ./rawsec_cli
@@ -56,23 +65,41 @@ pip install -r requirements.txt
 python setup.py install
 ```
 
+To install rawsec-cli on BlackArch:
+
+```
+pacman -S rawsec-cli
+```
+
+[![Packaging status](https://repology.org/badge/vertical-allrepos/rawsec-cli.svg)](https://repology.org/project/rawsec-cli/versions)
+
 # Usage
+
 ## Search
+
 Search command can be used for searching Tools, Resources, Ctf Platforms, OS. All projects will be displayed on a tab .
 If your research containing only 1 Result, rawsec will open a new brower tab redirect to source project or website if exist.
+
 ### Examples:
+
 You can search by key word, you will see all projects with jwt in their description or name:
+
 ```
 rawsec-cli search jwt
 ```
 
 You can search a project, if the Search containing 1 result you will see result in console, and a tab is opened on your browser with redirect to website if informed or source:
+
 ```
 rawsec-cli search myjwt
 ```
+
 ## List
+
 You can list all projects by category.
+
 ### Category List
+
 ```
 rawsec-cli list
 output: 
@@ -81,10 +108,13 @@ output:
     resources
     tools
 ```
+
 ### Tools
+
 You can list all tools by tool's category.
 
 #### Tools's Category
+
 ```
 Category available:
         binary_exploitation
@@ -110,22 +140,28 @@ Category available:
         vulnerability_assessment
         web_application_exploitation
         wireless
-
 ```
+
 #### Examples:
+
 List all tools:
+
 ```
 rawsec-cli list tools 
 ```
 
 List all [binary exploitation tools](#toolss-category):
+
  ```
 rawsec-cli list tools binary_exploitation
 ```
+
 ### Resources
+
 You can list all tools by Resources's category.
 
 #### Resources's Category
+
 ```
 Category available:
         bug_bounty_and_disclosure_platforms
@@ -140,58 +176,75 @@ Category available:
         tutorials
         writeups_collections_and_challenges_source
 ```
+
 #### Examples:
+
 List all resources:
+
 ```
 rawsec-cli list resources  
 ```
 
 List all [events resources](#resourcess-category):
+
  ```
 rawsec-cli list resources events
 ```
+
 ### CTF
+
 You can list all ctf by ctf's category.
 
 #### CTF's Category
+
 ```
 Category available:
         attack_defense
         hybrid
         jeopardy
 ```
+
 #### Examples:
+
 List all ctf:
+
 ```
 rawsec-cli list ctf  
 ```
 
 List all [attack_defense ctf](#ctfs-category):
- ```
+```
 rawsec-cli list ctf attack_defense
 ```
+
 ### OS
+
 You can list all tools by OS's category.
 
 #### OS's Category
+
 ```
 Category available:
         maintained
         no_more_maintained
         project_transferred
 ```
+
 #### Examples:
+
 List all os:
+
 ```
 rawsec-cli list os  
 ```
 
 List all [maintained os](#oss-category):
- ```
+```
 rawsec-cli list os maintained
 ```
 
 ## Option
+
 ```
 rawsec-cli search --help
 rawsec-cli list ctf --help
@@ -200,13 +253,16 @@ rawsec-cli list resources --help
 rawsec-cli list tools --help
 ```
 
-
 # Download
+
 Check github releases. Latest is available at https://github.com/mBouamama/rawsec_cli/releases/latest
 
 # Thanks 
+
 See [THANKS.md](https://github.com/mBouamama/rawsec_cli/blob/master/THANKS.md).
+
 # Contribute
+
 - Fork this repository or clone it
 - Create a new branch (feature, hotfix, etc...)
 - Make necessary changes and commit those changes
