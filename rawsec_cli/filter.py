@@ -4,7 +4,7 @@
 def filterProjects(
     projects,
     lang=None,
-    price=False,
+    paid=False,
     free=False,
     online=False,
     offline=False,
@@ -14,7 +14,7 @@ def filterProjects(
     Filter method.
     :param list projects: all projects
     :param str lang:
-    :param bool price:
+    :param bool paid:
     :param bool free:
     :param bool online:
     :param bool offline:
@@ -30,7 +30,7 @@ def filterProjects(
             and not lang.lower() != project["language"].lower()
         ]
 
-    if price:
+    if paid:
         projects = [
             project
             for project in projects

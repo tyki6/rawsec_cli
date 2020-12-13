@@ -118,6 +118,12 @@ def tools(ctx, category, lang, paid, free, online, offline, blackarch):
     click.echo(len(projects))
 
 
+# @tools.command("category")
+# @click.pass_context
+# def category(ctx, category):
+#     click.echo("test")
+
+
 @listCommand.command("resources")
 @click.pass_context
 @click.argument("category", required=False)
