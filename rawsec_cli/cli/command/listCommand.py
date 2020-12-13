@@ -38,7 +38,7 @@ def listCommand():
     "--paid",
     "-p",
     is_flag=True,
-    help="Filter by Price, when price is equal to paid",
+    help="Filter by Price, when price is equal to paid.",
 )
 @click.option(
     "--free",
@@ -116,6 +116,12 @@ def tools(ctx, category, lang, paid, free, online, offline, blackarch):
     table = columnar(projects, headers=wanted_keys)
     click.echo(table)
     click.echo(len(projects))
+
+
+# @tools.command("category")
+# @click.pass_context
+# def category(ctx, category):
+#     click.echo("test")
 
 
 @listCommand.command("resources")

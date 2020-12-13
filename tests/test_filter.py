@@ -33,7 +33,7 @@ class TestFilter(TestCase):
         projects = filterProjects(
             self.projects,
             lang="Python",
-            price=True,
+            paid=True,
             online=True,
             blackarch=True,
         )

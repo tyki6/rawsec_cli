@@ -213,7 +213,6 @@ rawsec-cli list ctf
 ```
 
 List all [attack_defense ctf](#ctfs-category):
-
 ```
 rawsec-cli list ctf attack_defense
 ```
@@ -240,7 +239,6 @@ rawsec-cli list os
 ```
 
 List all [maintained os](#oss-category):
-
 ```
 rawsec-cli list os maintained
 ```
