@@ -13,7 +13,7 @@ from rawsec_cli.search import searchProject
 @click.pass_context
 @click.option("--lang", "-l", help="Filter by Language")
 @click.option(
-    "--price",
+    "--paid",
     "-p",
     is_flag=True,
     help="Filter by Price, when price is equal to paid",
@@ -40,9 +40,9 @@ from rawsec_cli.search import searchProject
     "--blackarch",
     "-b",
     is_flag=True,
-    help="Filter by blackarch when package is present on blackarch",
+    help="Filter by Blackarch when package is present on Blackarch",
 )
-def search(ctx, project, lang, price, free, online, offline, blackarch):
+def search(ctx, project, lang, paid, free, online, offline, blackarch):
     """
     Search a project inventoried on rawsec.\n
     Search in name and description.\n
@@ -51,7 +51,7 @@ def search(ctx, project, lang, price, free, online, offline, blackarch):
     :param ctx: click context
     :param str project: project name or description
     :param str lang: filter by language
-    :param bool price: paid
+    :param bool paid: paid
     :param bool free: free
     :param bool online: online
     :param bool offline: offline
@@ -62,7 +62,7 @@ def search(ctx, project, lang, price, free, online, offline, blackarch):
     projects = filterProjects(
         projects,
         lang,
-        price,
+        paid,
         free,
         online,
         offline,
