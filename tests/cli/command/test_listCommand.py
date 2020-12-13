@@ -134,3 +134,14 @@ class TestListCommand(TestCase):
             catch_exceptions=False,
         )
         self.assertEqual(result.exit_code, 0)
+
+    # https://github.com/mBouamama/rawsec_cli/issues/17
+    def testSearchOsProjectTransferred(self):
+        """ test searchOs function when category is project_transferred"""
+        result = CliRunner().invoke(
+            cli,
+            ["list", "os", "project_transferred"],
+            catch_exceptions=False,
+        )
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn("Total", result.output)

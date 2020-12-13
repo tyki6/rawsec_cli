@@ -115,7 +115,7 @@ def tools(ctx, category, lang, paid, free, online, offline, blackarch):
     projects = [list(project.values()) for project in projects]
     table = columnar(projects, headers=wanted_keys)
     click.echo(table)
-    click.echo(len(projects))
+    click.echo("Total projects found: " + str(len(projects)))
 
 
 # @tools.command("category")
@@ -177,7 +177,7 @@ def resources(ctx, category, paid, free):
         resourcesList.append(resourceList)
     table = columnar(resourcesList, headers=wanted_keys)
     click.echo(table)
-    click.echo(len(projects))
+    click.echo("Total projects found: " + str(len(projects)))
 
 
 @listCommand.command()
@@ -234,7 +234,7 @@ def ctf(ctx, category, lang, paid, free):
     projects = [list(project.values()) for project in projects]
     table = columnar(projects, headers=wanted_keys)
     click.echo(table)
-    click.echo(len(projects))
+    click.echo("Total projects found: " + str(len(projects)))
 
 
 @listCommand.command()
@@ -258,6 +258,8 @@ def os(ctx, category, base):
             click.echo(f"\t{category}")
         sys.exit("Not a good category")
     if category:
+        if category == "project_transferred":
+            wanted_keys = ["from", "to"]
         projects = getOperatingByCategory(ctx.obj["json"], category)
     else:
         projects = getAllOperating(ctx.obj["json"])
@@ -271,4 +273,4 @@ def os(ctx, category, base):
     projects = [list(project.values()) for project in projects]
     table = columnar(projects, headers=wanted_keys)
     click.echo(table)
-    click.echo(len(projects))
+    click.echo("Total projects found: " + str(len(projects)))
