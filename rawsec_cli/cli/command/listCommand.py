@@ -38,7 +38,7 @@ def listCommand():
     "--paid",
     "-p",
     is_flag=True,
-    help="Filter by Price, when price is equal to paid",
+    help="Filter by Price, when price is equal to paid.",
 )
 @click.option(
     "--free",

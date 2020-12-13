@@ -3,7 +3,7 @@ install:
 install-dev:
 	pip install -r dev-requirements.txt
 full-install: install install-dev
-	pre-commit install && cd docs && pip install -r requirements.txt && cd ..
+	cd docs && pip install -r requirements.txt && cd ..
 lint:
 	pre-commit run --all-files
 docstr:

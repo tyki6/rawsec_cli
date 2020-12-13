@@ -41,11 +41,11 @@ This cli can search a project,list all projects by category, you can filter your
 # Installation
 To install rawsec, simply use pip:
 ```
-pip install rawsec
+pip install rawsec-cli
 ```
 To run rawsec from a docker image, run:
 ```
-docker run -it docker.pkg.github.com/mbouamama/rawsec_cli/rawsec:latest rawsec --help
+docker run -it docker.pkg.github.com/mbouamama/rawsec_cli/rawsec:latest rawsec-cli --help
 ```
 
 To install rawsec, on git:
@@ -63,18 +63,18 @@ If your research containing only 1 Result, rawsec will open a new brower tab red
 ### Examples:
 You can search by key word, you will see all projects with jwt in their description or name:
 ```
-rawsec search jwt
+rawsec-cli search jwt
 ```
 
 You can search a project, if the Search containing 1 result you will see result in console, and a tab is opened on your browser with redirect to website if informed or source:
 ```
-rawsec search myjwt
+rawsec-cli search myjwt
 ```
 ## List
 You can list all projects by category.
 ### Category List
 ```
-rawsec list
+rawsec-cli list
 output: 
     ctf
     os
@@ -115,12 +115,12 @@ Category available:
 #### Examples:
 List all tools:
 ```
-rawsec list tools 
+rawsec-cli list tools 
 ```
 
 List all [binary exploitation tools](#toolss-category):
  ```
-rawsec list tools binary_exploitation
+rawsec-cli list tools binary_exploitation
 ```
 ### Resources
 You can list all tools by Resources's category.
@@ -143,12 +143,12 @@ Category available:
 #### Examples:
 List all resources:
 ```
-rawsec list resources  
+rawsec-cli list resources  
 ```
 
 List all [events resources](#resourcess-category):
  ```
-rawsec list resources events
+rawsec-cli list resources events
 ```
 ### CTF
 You can list all ctf by ctf's category.
@@ -163,12 +163,12 @@ Category available:
 #### Examples:
 List all ctf:
 ```
-rawsec list ctf  
+rawsec-cli list ctf  
 ```
 
 List all [attack_defense ctf](#ctfs-category):
  ```
-rawsec list ctf attack_defense
+rawsec-cli list ctf attack_defense
 ```
 ### OS
 You can list all tools by OS's category.
@@ -183,22 +183,24 @@ Category available:
 #### Examples:
 List all os:
 ```
-rawsec list os  
+rawsec-cli list os  
 ```
 
 List all [maintained os](#oss-category):
  ```
-rawsec list os maintained
+rawsec-cli list os maintained
 ```
 
 ## Option
 ```
-rawsec search --help
-rawsec list ctf --help
-rawsec list os --help
-rawsec list resources --help
-rawsec list tools --help
+rawsec-cli search --help
+rawsec-cli list ctf --help
+rawsec-cli list os --help
+rawsec-cli list resources --help
+rawsec-cli list tools --help
 ```
+
+
 # Download
 Check github releases. Latest is available at https://github.com/mBouamama/rawsec_cli/releases/latest
 
