@@ -74,5 +74,8 @@ def search(ctx, project, lang, paid, free, online, offline, blackarch):
             webbrowser.open_new_tab(projects[0]["website"])
         elif "source" in projects[0]:
             webbrowser.open_new_tab(projects[0]["source"])
-
-    click.echo(tabulate(projects, "keys", tablefmt="grid"))
+    if len(projects) == 0:
+        click.echo("Project not found!")
+    else:
+        click.echo(tabulate(projects, "keys", tablefmt="grid"))
+        click.echo("Total projects found: " + str(len(projects)))

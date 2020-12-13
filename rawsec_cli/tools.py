@@ -212,6 +212,8 @@ def getAllOperating(json):
     """
     listProjects = list()
     for categoryOperating in getOperatingCategory(json):
+        if categoryOperating == "project_transferred":
+            continue
         for tool in getOperatingByCategory(json, categoryOperating):
             listProjects.append(tool)
     return listProjects

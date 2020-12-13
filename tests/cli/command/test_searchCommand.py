@@ -46,3 +46,31 @@ class TestSearchCommand(TestCase):
         )
         self.assertEqual(result.exit_code, 0)
         self.assertIn("tools", result.output)
+
+    def testSearchOnly1Result(self):
+        """ test search only 1 result function"""
+        result = CliRunner().invoke(
+            cli,
+            ["search", "myjwt"],
+            catch_exceptions=False,
+        )
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn("myjwt", result.output)
+
+        result = CliRunner().invoke(
+            cli,
+            ["search", "wfuzz"],
+            catch_exceptions=False,
+        )
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn("wfuzz", result.output)
+
+    def testSearchNotFound(self):
+        """ test search incorrect project function"""
+        result = CliRunner().invoke(
+            cli,
+            ["search", "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"],
+            catch_exceptions=False,
+        )
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn("Project not found!", result.output)

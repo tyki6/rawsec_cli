@@ -15,3 +15,11 @@ cd ./rawsec_cli
 pip install -r requirements.txt
 python setup.py install
 ```
+
+To install rawsec-cli on BlackArch:
+
+```
+pacman -S rawsec-cli
+```
+
+[![Packaging status](https://repology.org/badge/vertical-allrepos/rawsec-cli.svg)](https://repology.org/project/rawsec-cli/versions)
