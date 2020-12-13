@@ -1,32 +1,45 @@
 # Usage
+
 ## Search
+
 Search command can be used for searching Tools, Resources, Ctf Platforms, OS. All projects will be displayed on a tab .
 If your research containing only 1 Result, rawsec will open a new brower tab redirect to source project or website if exist.
+
 ### Examples:
+
 You can search by key word, you will see all projects with jwt in their description or name:
+
 ```
-rawsec search jwt
+rawsec-cli search jwt
 ```
 
 You can search a project, if the Search containing 1 result you will see result in console, and a tab is opened on your browser with redirect to website if informed or source:
+
 ```
-rawsec search myjwt
+rawsec-cli search myjwt
 ```
+
 ## List
+
 You can list all projects by category.
+
 ### Category List
+
 ```
-rawsec list
+rawsec-cli list
 output: 
     ctf
     os
     resources
     tools
 ```
+
 ### Tools
+
 You can list all tools by tool's category.
 
 #### Tools's Category
+
 ```
 Category available:
         binary_exploitation
@@ -52,22 +65,28 @@ Category available:
         vulnerability_assessment
         web_application_exploitation
         wireless
+```
+
+#### Examples:
+
+List all tools:
 
 ```
-#### Examples:
-List all tools:
-```
-rawsec list tools 
+rawsec-cli list tools 
 ```
 
 List all [binary exploitation tools](#toolss-category):
+
  ```
-rawsec list tools binary_exploitation
+rawsec-cli list tools binary_exploitation
 ```
+
 ### Resources
+
 You can list all tools by Resources's category.
 
 #### Resources's Category
+
 ```
 Category available:
         bug_bounty_and_disclosure_platforms
@@ -82,62 +101,81 @@ Category available:
         tutorials
         writeups_collections_and_challenges_source
 ```
+
 #### Examples:
+
 List all resources:
+
 ```
-rawsec list resources  
+rawsec-cli list resources  
 ```
 
 List all [events resources](#resourcess-category):
+
  ```
-rawsec list resources events
+rawsec-cli list resources events
 ```
+
 ### CTF
+
 You can list all ctf by ctf's category.
 
 #### CTF's Category
+
 ```
 Category available:
         attack_defense
         hybrid
         jeopardy
 ```
+
 #### Examples:
+
 List all ctf:
+
 ```
-rawsec list ctf  
+rawsec-cli list ctf  
 ```
 
 List all [attack_defense ctf](#ctfs-category):
- ```
-rawsec list ctf attack_defense
+
 ```
+rawsec-cli list ctf attack_defense
+```
+
 ### OS
+
 You can list all tools by OS's category.
 
 #### OS's Category
+
 ```
 Category available:
         maintained
         no_more_maintained
         project_transferred
 ```
+
 #### Examples:
+
 List all os:
+
 ```
-rawsec list os  
+rawsec-cli list os  
 ```
 
 List all [maintained os](#oss-category):
- ```
-rawsec list os maintained
+
+```
+rawsec-cli list os maintained
 ```
 
 ## Option
+
 ```
-rawsec search --help
-rawsec list ctf --help
-rawsec list os --help
-rawsec list resources --help
-rawsec list tools --help
+rawsec-cli search --help
+rawsec-cli list ctf --help
+rawsec-cli list os --help
+rawsec-cli list resources --help
+rawsec-cli list tools --help
 ```
