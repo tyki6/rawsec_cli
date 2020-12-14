@@ -39,7 +39,7 @@ docker:
 freeze:
 	pip freeze > freeze.txt
 clean:
-	rm -rf docs/build .tox .pytest_cache build  rawsec.egg-info dist coverage_html_report   dumpSyntax .coverage .coverage.* .rnd .mypy_cache
+	rm -rf docs/build .tox .pytest_cache build  rawsec_cli.egg-info dist coverage_html_report   dumpSyntax .coverage .coverage.* .rnd .mypy_cache
 help:
 	@echo "make install           Install requirements."
 	@echo "make install-dev       Install dev requirements."
