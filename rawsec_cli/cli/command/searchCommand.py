@@ -1,8 +1,5 @@
 """Search command cli file"""
-import webbrowser
-
 import click
-from tabulate import tabulate
 
 from rawsec_cli.filter import filterProjects
 from rawsec_cli.output import print_output

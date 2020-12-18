@@ -2,7 +2,6 @@
 import sys
 
 import click
-from columnar import columnar
 
 from rawsec_cli.filter import filterProjects
 from rawsec_cli.output import print_output

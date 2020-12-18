@@ -50,15 +50,22 @@ def table_output(projects=None, file=None, wanted_keys=None):
             else:
                 line.append(project[header])
         table_projects.append(line)
-    patterns = [
-        ("https://.+", lambda text: text + " "),
-        ("http://.+", lambda text: text + " "),
-    ]
+    if sys.version_info[1] > 6:
+        patterns = [
+            ("https://.+", lambda text: text + " "),
+            ("http://.+", lambda text: text + " "),
+        ]
+    else:
+        patterns = []
+
     if len(projects) == 0:
         click.echo("Project not found!")
     else:
         table = columnar(
-            table_projects, headers=wanted_keys, justify="c", patterns=patterns,
+            table_projects,
+            headers=wanted_keys,
+            justify="c",
+            patterns=patterns,
         )
         if file is not None:
             with open(file, "w") as f:
