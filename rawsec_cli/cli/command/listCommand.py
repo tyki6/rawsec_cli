@@ -69,14 +69,30 @@ def listCommand():
     "--output",
     "-o",
     help="Output format",
-    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
-    default='table')
+    type=click.Choice(
+        ["json", "csv", "table"],
+        case_sensitive=False,
+    ),
+    default="table",
+)
 @click.option(
     "--output-file",
     "-of",
     help="Output file name if you want. Format: json, csv, table are supported.",
-    default=None)
-def tools(ctx, category, lang, paid, free, online, offline, blackarch, output, output_file):
+    default=None,
+)
+def tools(
+    ctx,
+    category,
+    lang,
+    paid,
+    free,
+    online,
+    offline,
+    blackarch,
+    output,
+    output_file,
+):
     """
     List all tools inventoried on rawsec, you can add category.\n
     full documentation: https://rawsec-cli.readthedocs.io/
@@ -124,7 +140,12 @@ def tools(ctx, category, lang, paid, free, online, offline, blackarch, output, o
         offline=offline,
         blackarch=blackarch,
     )
-    print_output(projects=projects, output=output, file=output_file, wanted_keys=wanted_keys)
+    print_output(
+        projects=projects,
+        output=output,
+        file=output_file,
+        wanted_keys=wanted_keys,
+    )
 
 
 @listCommand.command("resources")
@@ -146,13 +167,18 @@ def tools(ctx, category, lang, paid, free, online, offline, blackarch, output, o
     "--output",
     "-o",
     help="Output format",
-    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
-    default='table')
+    type=click.Choice(
+        ["json", "csv", "table"],
+        case_sensitive=False,
+    ),
+    default="table",
+)
 @click.option(
     "--output-file",
     "-of",
     help="Output file name if you want. Format: json, csv, table are supported.",
-    default=None)
+    default=None,
+)
 def resources(ctx, category, paid, free, output, output_file):
     """
     List all resources inventoried on rawsec, you can add category.\n
@@ -189,8 +215,12 @@ def resources(ctx, category, paid, free, output, output_file):
             else:
                 resourceList.append(resource[keys])
         resourcesList.append(resourceList)
-    print_output(projects=projects, output=output, file=output_file, wanted_keys=wanted_keys)
-
+    print_output(
+        projects=projects,
+        output=output,
+        file=output_file,
+        wanted_keys=wanted_keys,
+    )
 
 
 @listCommand.command()
@@ -213,13 +243,18 @@ def resources(ctx, category, paid, free, output, output_file):
     "--output",
     "-o",
     help="Output format",
-    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
-    default='table')
+    type=click.Choice(
+        ["json", "csv", "table"],
+        case_sensitive=False,
+    ),
+    default="table",
+)
 @click.option(
     "--output-file",
     "-of",
     help="Output file name if you want. Format: json, csv, table are supported.",
-    default=None)
+    default=None,
+)
 def ctf(ctx, category, lang, paid, free, output, output_file):
     """
     List all ctf platforms inventoried on rawsec, you can add category.\n
@@ -255,8 +290,12 @@ def ctf(ctx, category, lang, paid, free, output, output_file):
         for tool in projects
     ]
     projects = filterProjects(projects, lang=lang, paid=paid, free=free)
-    print_output(projects=projects, output=output, file=output_file, wanted_keys=wanted_keys)
-
+    print_output(
+        projects=projects,
+        output=output,
+        file=output_file,
+        wanted_keys=wanted_keys,
+    )
 
 
 @listCommand.command()
@@ -267,13 +306,18 @@ def ctf(ctx, category, lang, paid, free, output, output_file):
     "--output",
     "-o",
     help="Output format",
-    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
-    default='table')
+    type=click.Choice(
+        ["json", "csv", "table"],
+        case_sensitive=False,
+    ),
+    default="table",
+)
 @click.option(
     "--output-file",
     "-of",
     help="Output file name if you want. Format: json, csv, table are supported.",
-    default=None)
+    default=None,
+)
 def os(ctx, category, base, output, output_file):
     """
     List all os inventoried on rawsec, you can add category.\n
@@ -303,5 +347,9 @@ def os(ctx, category, base, output, output_file):
         projects = [
             os for os in projects if os["base"].lower() == base.lower()
         ]
-    print_output(projects=projects, output=output, file=output_file, wanted_keys=wanted_keys)
-
+    print_output(
+        projects=projects,
+        output=output,
+        file=output_file,
+        wanted_keys=wanted_keys,
+    )

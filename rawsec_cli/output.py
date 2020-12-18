@@ -23,7 +23,7 @@ def print_output(projects=None, output="table", file=None, wanted_keys=None):
 
 def json_output(projects=None, file=None):
     if file is not None:
-        with open(file, 'w') as f:
+        with open(file, "w") as f:
             json.dump({"projects": projects, "total": len(projects)}, f)
     else:
         click.echo({"projects": projects, "total": len(projects)})
@@ -31,7 +31,7 @@ def json_output(projects=None, file=None):
 
 def csv_output(projects=None, file=None, wanted_keys=None):
     if file is not None:
-        fileobj = open(file, 'w')
+        fileobj = open(file, "w")
     else:
         fileobj = sys.stdout
     file_writer = csv.writer(fileobj, quoting=csv.QUOTE_ALL)
@@ -51,15 +51,17 @@ def table_output(projects=None, file=None, wanted_keys=None):
                 line.append(project[header])
         table_projects.append(line)
     patterns = [
-        ('https://.+', lambda text: text + " "),
-        ('http://.+', lambda text: text + " "),
+        ("https://.+", lambda text: text + " "),
+        ("http://.+", lambda text: text + " "),
     ]
     if len(projects) == 0:
         click.echo("Project not found!")
     else:
-        table = columnar(table_projects, headers=wanted_keys, justify='c', patterns=patterns)
+        table = columnar(
+            table_projects, headers=wanted_keys, justify="c", patterns=patterns,
+        )
         if file is not None:
-            with open(file, 'w') as f:
+            with open(file, "w") as f:
                 f.write(table)
         else:
             if len(projects) == 1:

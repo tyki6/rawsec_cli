@@ -47,14 +47,30 @@ from rawsec_cli.search import searchProject
     "--output",
     "-o",
     help="Output format",
-    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
-    default='table')
+    type=click.Choice(
+        ["json", "csv", "table"],
+        case_sensitive=False,
+    ),
+    default="table",
+)
 @click.option(
     "--output-file",
     "-of",
     help="Output file name if you want. Format: json, csv, table are supported.",
-    default=None)
-def search(ctx, project, lang, paid, free, online, offline, blackarch, output, output_file):
+    default=None,
+)
+def search(
+    ctx,
+    project,
+    lang,
+    paid,
+    free,
+    online,
+    offline,
+    blackarch,
+    output,
+    output_file,
+):
     """
     Search a project inventoried on rawsec.\n
     Search in name and description.\n
@@ -83,4 +99,9 @@ def search(ctx, project, lang, paid, free, online, offline, blackarch, output, o
     wanted_keys = list()
     for project in projects:
         wanted_keys += project.keys()
-    print_output(projects=projects, output=output, file=output_file, wanted_keys=list(dict.fromkeys(wanted_keys)))
+    print_output(
+        projects=projects,
+        output=output,
+        file=output_file,
+        wanted_keys=list(dict.fromkeys(wanted_keys)),
+    )
