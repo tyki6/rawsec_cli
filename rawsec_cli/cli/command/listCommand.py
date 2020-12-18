@@ -5,6 +5,7 @@ import click
 from columnar import columnar
 
 from rawsec_cli.filter import filterProjects
+from rawsec_cli.output import print_output
 from rawsec_cli.tools import getAllCTF
 from rawsec_cli.tools import getAllOperating
 from rawsec_cli.tools import getAllResources
@@ -64,7 +65,18 @@ def listCommand():
     is_flag=True,
     help="Filter by blackarch when package is present on blackarch",
 )
-def tools(ctx, category, lang, paid, free, online, offline, blackarch):
+@click.option(
+    "--output",
+    "-o",
+    help="Output format",
+    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
+    default='table')
+@click.option(
+    "--output-file",
+    "-of",
+    help="Output file name if you want. Format: json, csv, table are supported.",
+    default=None)
+def tools(ctx, category, lang, paid, free, online, offline, blackarch, output, output_file):
     """
     List all tools inventoried on rawsec, you can add category.\n
     full documentation: https://rawsec-cli.readthedocs.io/
@@ -112,16 +124,7 @@ def tools(ctx, category, lang, paid, free, online, offline, blackarch):
         offline=offline,
         blackarch=blackarch,
     )
-    projects = [list(project.values()) for project in projects]
-    table = columnar(projects, headers=wanted_keys)
-    click.echo(table)
-    click.echo("Total projects found: " + str(len(projects)))
-
-
-# @tools.command("category")
-# @click.pass_context
-# def category(ctx, category):
-#     click.echo("test")
+    print_output(projects=projects, output=output, file=output_file, wanted_keys=wanted_keys)
 
 
 @listCommand.command("resources")
@@ -139,7 +142,18 @@ def tools(ctx, category, lang, paid, free, online, offline, blackarch):
     is_flag=True,
     help="Filter by Price, when price is equal to free",
 )
-def resources(ctx, category, paid, free):
+@click.option(
+    "--output",
+    "-o",
+    help="Output format",
+    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
+    default='table')
+@click.option(
+    "--output-file",
+    "-of",
+    help="Output file name if you want. Format: json, csv, table are supported.",
+    default=None)
+def resources(ctx, category, paid, free, output, output_file):
     """
     List all resources inventoried on rawsec, you can add category.\n
     full documentation: https://rawsec-cli.readthedocs.io/
@@ -175,9 +189,8 @@ def resources(ctx, category, paid, free):
             else:
                 resourceList.append(resource[keys])
         resourcesList.append(resourceList)
-    table = columnar(resourcesList, headers=wanted_keys)
-    click.echo(table)
-    click.echo("Total projects found: " + str(len(projects)))
+    print_output(projects=projects, output=output, file=output_file, wanted_keys=wanted_keys)
+
 
 
 @listCommand.command()
@@ -196,7 +209,18 @@ def resources(ctx, category, paid, free):
     is_flag=True,
     help="Filter by Price, when price is equal to free",
 )
-def ctf(ctx, category, lang, paid, free):
+@click.option(
+    "--output",
+    "-o",
+    help="Output format",
+    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
+    default='table')
+@click.option(
+    "--output-file",
+    "-of",
+    help="Output file name if you want. Format: json, csv, table are supported.",
+    default=None)
+def ctf(ctx, category, lang, paid, free, output, output_file):
     """
     List all ctf platforms inventoried on rawsec, you can add category.\n
     full documentation: https://rawsec-cli.readthedocs.io/
@@ -231,17 +255,26 @@ def ctf(ctx, category, lang, paid, free):
         for tool in projects
     ]
     projects = filterProjects(projects, lang=lang, paid=paid, free=free)
-    projects = [list(project.values()) for project in projects]
-    table = columnar(projects, headers=wanted_keys)
-    click.echo(table)
-    click.echo("Total projects found: " + str(len(projects)))
+    print_output(projects=projects, output=output, file=output_file, wanted_keys=wanted_keys)
+
 
 
 @listCommand.command()
 @click.pass_context
 @click.argument("category", required=False)
 @click.option("--base", "-b", help="Filter by base")
-def os(ctx, category, base):
+@click.option(
+    "--output",
+    "-o",
+    help="Output format",
+    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
+    default='table')
+@click.option(
+    "--output-file",
+    "-of",
+    help="Output file name if you want. Format: json, csv, table are supported.",
+    default=None)
+def os(ctx, category, base, output, output_file):
     """
     List all os inventoried on rawsec, you can add category.\n
     full documentation: https://rawsec-cli.readthedocs.io/
@@ -270,7 +303,5 @@ def os(ctx, category, base):
         projects = [
             os for os in projects if os["base"].lower() == base.lower()
         ]
-    projects = [list(project.values()) for project in projects]
-    table = columnar(projects, headers=wanted_keys)
-    click.echo(table)
-    click.echo("Total projects found: " + str(len(projects)))
+    print_output(projects=projects, output=output, file=output_file, wanted_keys=wanted_keys)
+

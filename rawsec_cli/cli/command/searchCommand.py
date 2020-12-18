@@ -5,6 +5,7 @@ import click
 from tabulate import tabulate
 
 from rawsec_cli.filter import filterProjects
+from rawsec_cli.output import print_output
 from rawsec_cli.search import searchProject
 
 
@@ -42,7 +43,18 @@ from rawsec_cli.search import searchProject
     is_flag=True,
     help="Filter by Blackarch when package is present on Blackarch",
 )
-def search(ctx, project, lang, paid, free, online, offline, blackarch):
+@click.option(
+    "--output",
+    "-o",
+    help="Output format",
+    type=click.Choice(['json', 'csv', 'table'], case_sensitive=False, ),
+    default='table')
+@click.option(
+    "--output-file",
+    "-of",
+    help="Output file name if you want. Format: json, csv, table are supported.",
+    default=None)
+def search(ctx, project, lang, paid, free, online, offline, blackarch, output, output_file):
     """
     Search a project inventoried on rawsec.\n
     Search in name and description.\n
@@ -68,14 +80,7 @@ def search(ctx, project, lang, paid, free, online, offline, blackarch):
         offline,
         blackarch,
     )
-
-    if len(projects) == 1:
-        if "website" in projects[0]:
-            webbrowser.open_new_tab(projects[0]["website"])
-        elif "source" in projects[0]:
-            webbrowser.open_new_tab(projects[0]["source"])
-    if len(projects) == 0:
-        click.echo("Project not found!")
-    else:
-        click.echo(tabulate(projects, "keys", tablefmt="grid"))
-        click.echo("Total projects found: " + str(len(projects)))
+    wanted_keys = list()
+    for project in projects:
+        wanted_keys += project.keys()
+    print_output(projects=projects, output=output, file=output_file, wanted_keys=list(dict.fromkeys(wanted_keys)))

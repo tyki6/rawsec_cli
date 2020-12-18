@@ -12,7 +12,7 @@ tox:
 	pip install tox tox-gh-actions
 	tox
 test:
-	coverage run --branch -p -m pytest
+	coverage run --branch -p -m pytest --capture=sys
 coverage:
 	coverage combine | true && coverage report -m
 html:
