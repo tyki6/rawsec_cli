@@ -3,3 +3,4 @@ include LICENSE
 include requirements.txt
 include dev-requirements.txt
 include img/*
+include docs/*
