@@ -1,21 +1,12 @@
 """Test file for search File"""
 import csv
-import io
 import json
 import os
-import unittest.mock
-from unittest import TestCase
-from unittest.mock import patch
 
 from rawsec_cli.output import csv_output
 from rawsec_cli.output import json_output
 from rawsec_cli.output import print_output
 from rawsec_cli.output import table_output
-from rawsec_cli.search import searchProject
-from rawsec_cli.search import searchProjectCTF
-from rawsec_cli.search import searchProjectOperating
-from rawsec_cli.search import searchProjectResources
-from rawsec_cli.search import searchProjectTools
 
 
 def test_json_output(capsys):
