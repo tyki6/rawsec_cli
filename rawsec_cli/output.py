@@ -8,18 +8,18 @@ import click
 from columnar import columnar
 
 
-def print_output(projects=None, output="table", file=None, wanted_keys=None):
+def print_output(projects: list, output="table", file=None, wanted_keys=None):
     """
     Generate Output
     Parameters
     ----------
     projects: list
     output: str
-    file: str
-    wanted_keys: list
+    file: str or None
+    wanted_keys: list or None
     """
-    if projects is None:
-        projects = []
+    if wanted_keys is None:
+        wanted_keys = []
     if file is not None:
         output = os.path.splitext(file)[1][1:]
     if output == "json":
@@ -30,16 +30,14 @@ def print_output(projects=None, output="table", file=None, wanted_keys=None):
         table_output(projects=projects, file=file, wanted_keys=wanted_keys)
 
 
-def json_output(projects=None, file=None):
+def json_output(projects: list, file=None):
     """
     Generate json output format
     Parameters
     ----------
-    projects: list
-    file: str
+    projects: list of dict
+    file: str, optional
     """
-    if projects is None:
-        projects = []
     if file is not None:
         with open(file, "w") as f:
             json.dump({"projects": projects, "total": len(projects)}, f)
@@ -47,19 +45,15 @@ def json_output(projects=None, file=None):
         click.echo({"projects": projects, "total": len(projects)})
 
 
-def csv_output(projects=None, file=None, wanted_keys=None):
+def csv_output(projects: list, wanted_keys: list, file=None):
     """
     Generate csv output format
     Parameters
     ----------
-    projects: list
-    file: str
-    wanted_keys: list
+    projects: list of dict
+    wanted_keys: list of str
+    file: str, optional
     """
-    if wanted_keys is None:
-        wanted_keys = []
-    if projects is None:
-        projects = []
     if file is not None:
         fileobj = open(file, "w")
     else:
@@ -70,20 +64,15 @@ def csv_output(projects=None, file=None, wanted_keys=None):
         file_writer.writerow(project.values())
 
 
-def table_output(projects=None, file=None, wanted_keys=None):
+def table_output(projects: list, wanted_keys: list, file=None):
     """
     Generate txt output format, use columnar for generate table
     Parameters
     ----------
-    projects: list
-    file: str
-    wanted_keys: list
+    projects: list of dict
+    wanted_keys: list of str
+    file: str or None, optional
     """
-    if wanted_keys is None:
-        wanted_keys = []
-    if projects is None:
-        projects = []
-
     table_projects = list()
     for project in projects:
         line = list()
