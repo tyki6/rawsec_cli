@@ -53,7 +53,7 @@ pip install rawsec-cli
 To run rawsec-cli from a docker image, run:
 
 ```
-docker run -it docker.pkg.github.com/mbouamama/rawsec_cli/rawsec:latest rawsec-cli --help
+docker run -it docker.pkg.github.com/mbouamama/rawsec_cli/rawsec-cli:latest rawsec-cli --help
 ```
 
 To install rawsec-cli, on git:

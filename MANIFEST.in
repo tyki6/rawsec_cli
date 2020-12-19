@@ -4,3 +4,4 @@ include requirements.txt
 include dev-requirements.txt
 include img/*
 include docs/*
+include rawsec_cli/__init__.py
