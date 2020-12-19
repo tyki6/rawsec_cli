@@ -1,5 +1,6 @@
 """Search rawsec project file"""
-from typing import List, Dict
+from typing import Dict
+from typing import List
 
 from rawsec_cli.tools import get_all_ctf
 from rawsec_cli.tools import get_all_operating

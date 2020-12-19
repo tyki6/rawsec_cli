@@ -2,7 +2,7 @@
 ## Search
 Search command can be used for searching Tools, Resources, Ctf Platforms, OS. All projects will be displayed on a tab .
 If your research containing only 1 Result, rawsec will open a new brower tab redirect to source project or website if exist.
-### Examples:
+### Examples
 You can search by key word, you will see all projects with jwt in their description or name:
 ```
 rawsec-cli search jwt
@@ -54,7 +54,7 @@ Category available:
         wireless
 
 ```
-#### Examples:
+#### Examples
 List all tools:
 ```
 rawsec-cli list tools 
@@ -82,7 +82,7 @@ Category available:
         tutorials
         writeups_collections_and_challenges_source
 ```
-#### Examples:
+#### Examples
 List all resources:
 ```
 rawsec-cli list resources  
@@ -102,7 +102,7 @@ Category available:
         hybrid
         jeopardy
 ```
-#### Examples:
+#### Examples
 List all ctf:
 ```
 rawsec-cli list ctf  
@@ -122,7 +122,7 @@ Category available:
         no_more_maintained
         project_transferred
 ```
-#### Examples:
+#### Examples
 List all os:
 ```
 rawsec-cli list os  
@@ -131,13 +131,4 @@ rawsec-cli list os
 List all [maintained os](#oss-category):
  ```
 rawsec-cli list os maintained
-```
-
-## Option
-```
-rawsec-cli search --help
-rawsec-cli list ctf --help
-rawsec-cli list os --help
-rawsec-cli list resources --help
-rawsec-cli list tools --help
 ```
