@@ -15,12 +15,21 @@ CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
 @click.pass_context
 def cli(ctx, version):
     """
-    Rawsec's Cybersecurity Inventory is an inventory with 4 category(Tools, Resources, Ctf Platforms, OS).\n
-    This cli can search a project,list all projects by category, you can filter your research with option --help for more information.\n
-    full documentation: https://rawsec-cli.readthedocs.io/
+    \b
+    Rawsec's Cybersecurity Inventory is an inventory with 4 category(Tools, Resources, Ctf Platforms, OS).
+    This cli can search a project,list all projects by category, you can filter your research with option --help for more information.
+    Full documentation: https://rawsec-cli.readthedocs.io/
     \f
-    :param ctx: click context
-    :return:
+    Parameters
+    ----------
+    ctx: click Context
+        click Context.
+    version: bool
+        version flag.
+    Returns
+    -------
+    None
+        return version + commit version you use.
     """
     if version:
         click.echo(

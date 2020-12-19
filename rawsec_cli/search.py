@@ -1,17 +1,26 @@
 """Search rawsec project file"""
+from typing import Dict
+from typing import List
+
 from rawsec_cli.tools import get_all_ctf
 from rawsec_cli.tools import get_all_operating
 from rawsec_cli.tools import get_all_resources
 from rawsec_cli.tools import get_all_tools
 
 
-def search_project_tools(json, project):
+def search_project_tools(json: Dict, project: str) -> List[Dict]:
     """
-    Search project in tool's category
-    :param dict json: rawsec projects json
-    :param str project: project name or description
-    :return: list of projects
-    :rtype: list
+    Search project in tool's category.
+    Parameters
+    ----------
+    json: Dict
+        rawsec projects json
+    project: str
+        project name or description
+    Returns
+    -------
+    List[Dict]
+        list of rawsec projects
     """
     list_projects = list()
     for tool in get_all_tools(json):
@@ -23,13 +32,19 @@ def search_project_tools(json, project):
     return list_projects
 
 
-def search_project_resources(json, project):
+def search_project_resources(json: Dict, project: str) -> List[Dict]:
     """
-    Search project in resources's category
-    :param dict json: rawsec projects json
-    :param str project: project name or description
-    :return: list of projects
-    :rtype: list
+    Search project in resources's category.
+    Parameters
+    ----------
+    json: Dict
+        rawsec projects json
+    project: str
+        project name or description
+    Returns
+    -------
+    List[Dict]
+        list of rawsec projects
     """
     list_projects = list()
     for resource in get_all_resources(json):
@@ -43,13 +58,19 @@ def search_project_resources(json, project):
     return list_projects
 
 
-def search_project_ctf(json, project):
+def search_project_ctf(json: Dict, project: str) -> List[Dict]:
     """
-    Search project in ctf's category
-    :param dict json: rawsec projects json
-    :param str project: project name or description
-    :return: list of projects
-    :rtype: list
+    Search project in ctf's category.
+    Parameters
+    ----------
+    json: Dict
+        rawsec projects json
+    project: str
+        project name or description
+    Returns
+    -------
+    List[Dict]
+        list of rawsec projects
     """
     list_projects = list()
     for ctf in get_all_ctf(json):
@@ -61,13 +82,19 @@ def search_project_ctf(json, project):
     return list_projects
 
 
-def search_project_operating(json, project):
+def search_project_operating(json: Dict, project: str) -> List[Dict]:
     """
-    Search project in os's category
-    :param dict json: rawsec projects json
-    :param str project: project name or description
-    :return: list of projects
-    :rtype: list
+    Search project in os's category.
+    Parameters
+    ----------
+    json: Dict
+        rawsec projects json
+    project: str
+        project name or description
+    Returns
+    -------
+    List[Dict]
+        list of rawsec projects
     """
     list_projects = list()
     for operating in get_all_operating(json):
@@ -76,13 +103,19 @@ def search_project_operating(json, project):
     return list_projects
 
 
-def search_project(json, project):
+def search_project(json: Dict, project: str) -> List[Dict]:
     """
-    Search project in all category
-    :param dict json: rawsec projects json
-    :param str project: project name or description
-    :return: list of projects
-    :rtype: list
+    Search project in all category.
+    Parameters
+    ----------
+    json: Dict
+        rawsec projects json
+    project: str
+        project name or description
+    Returns
+    -------
+    List[Dict]
+        list of rawsec projects
     """
     return (
         search_project_tools(json, project)

@@ -35,3 +35,16 @@ jobs:
       - uses: ammaraskar/sphinx-action@master
         with:
           docs-folder: "docs/"
+  docstr:
+    runs-on: "ubuntu-latest"
+    name: "Run docstr"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: "actions/setup-python@v2"
+        with:
+          python-version: "3.8"
+      - name: "Install dependencies"
+        run: |
+          pip install docstr-coverage
+      - name: "Run pre-commit"
+        run: "make docstr"

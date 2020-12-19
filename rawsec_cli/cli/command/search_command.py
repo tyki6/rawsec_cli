@@ -69,19 +69,38 @@ def search(
     output_file,
 ):
     """
-    Search a project inventoried on rawsec.\n
-    Search in name and description.\n
-    full documentation: https://rawsec-cli.readthedocs.io/
+    \b
+    Search a project inventoried on rawsec.
+    Search in name and description.
+    Full documentation: https://rawsec-cli.readthedocs.io/
     \f
-    :param ctx: click context
-    :param str project: project name or description
-    :param str lang: filter by language
-    :param bool paid: paid
-    :param bool free: free
-    :param bool online: online
-    :param bool offline: offline
-    :param bool blackarch: present or not
-    :return:
+    Parameters
+    ----------
+    ctx: Context
+        Click context
+    project: str, optional
+        Keyword.
+    lang: str, optional
+        Language name.
+    paid: bool, optional
+        paid or not.
+    free: bool, optional
+        free or not.
+    online: bool, optional
+        online or not.
+    offline: bool, optional
+        offline or not.
+    blackarch: bool, optional
+        present on blackarch.
+    output: str, optional
+        output format.
+    output_file: str, optional
+        output file name, extension file will override output parameter.
+
+    Returns
+    -------
+    None
+        Return in output format(Default: table) in output_file(Default: stdout) a list of rawsec project within description or name project keyword.
     """
     projects = search_project(ctx.obj["json"], project)
     projects = filter_projects(

@@ -43,24 +43,24 @@ Rawsec Cli
 
 
 `Rawsec's Cybersecurity <https://inventory.raw.pm/overview.html>`_ Inventory is an inventory with 4 category(Tools, Resources, Ctf Platforms, OS).
-This cli can search a project,list all projects by category, you can filter your research with option --help for more information.
+This cli can search a project,list all projects by category, you can filter your research with option `--help` for more information.
 
 
-Contents
+Getting help
+--------
+
+If the Documentation  doesn’t answer your question, you can discuss rawsec-cli or get help using it on `Rawsec-cli's repository discussion <https://github.com/mBouamama/rawsec_cli/discussions.>`_
+Bug reports are gladly accepted at the `GitHub issue tracker <https://github.com/mBouamama/rawsec_cli/issues>`_. GitHub also hosts the `code repository <https://github.com/mBouamama/rawsec_cli>`_.
+
+
+More information
 --------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    installation
    usage
+   options
+   api
    changelog
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

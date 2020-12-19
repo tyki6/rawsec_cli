@@ -7,7 +7,7 @@ full-install: install install-dev
 lint:
 	pre-commit run --all-files
 docstr:
-	docstr-coverage rawsec_cli tests --skipinit --badge=img --verbose 2
+	docstr-coverage rawsec_cli tests --skipinit --failunder 95
 tox:
 	pip install tox tox-gh-actions
 	tox

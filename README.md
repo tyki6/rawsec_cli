@@ -243,15 +243,66 @@ List all [maintained os](#oss-category):
 rawsec-cli list os maintained
 ```
 
-## Option
+## Options
+## rawsec-cli
+| command            | type           | description                                              |
+| ------------------ | -------------- | ---------------------------------------------------------|
+| -V, --version      | None           | show version.                                            |
+| -h, --help         | None           | Show  help message and exit.                             |
 
-```
-rawsec-cli search --help
-rawsec-cli list ctf --help
-rawsec-cli list os --help
-rawsec-cli list resources --help
-rawsec-cli list tools --help
-```
+## search
+| command            | type           | description                                              |
+| ------------------ | -------------- | ---------------------------------------------------------|
+| -l, --lang         | None           | Filter by Language                                       |
+| -p, --paid         | None           | Filter by Price, when price is equal to paid             |
+| -f, --free         | None           | Filter by Price, when price is equal to free             |
+| -on, --online      | None           | Filter by Online, when online is equal to true           |
+| -off, --offline    | None           | Filter by Online, when online is equal to false          |
+| -b, --blackarch    | None           | Filter by Blackarch when package is present on Blackarch |
+| -o, --output       | json,csv,table | Output format                                            |
+| -of, --output-file | file path      | Output file name if you want.                            |
+| -h, --help         | None           | Show search help message and exit.                       |
+
+## list
+### tools
+| command            | type           | description                                              |
+| ------------------ | -------------- | ---------------------------------------------------------|
+| -l, --lang         | None           | Filter by Language                                       |
+| -p, --paid         | None           | Filter by Price, when price is equal to paid             |
+| -f, --free         | None           | Filter by Price, when price is equal to free             |
+| -on, --online      | None           | Filter by Online, when online is equal to true           |
+| -off, --offline    | None           | Filter by Online, when online is equal to false          |
+| -b, --blackarch    | None           | Filter by Blackarch when package is present on Blackarch |
+| -o, --output       | json,csv,table | Output format                                            |
+| -of, --output-file | file path      | Output file name if you want.                            |
+| -h, --help         | None           | Show list tools help message and exit.                   |
+
+### resources
+| command            | type           | description                                              |
+| ------------------ | -------------- | ---------------------------------------------------------|
+| -p, --paid         | None           | Filter by Price, when price is equal to paid             |
+| -f, --free         | None           | Filter by Price, when price is equal to free             |
+| -o, --output       | json,csv,table | Output format                                            |
+| -of, --output-file | file path      | Output file name if you want.                            |
+| -h, --help         | None           | Show list resources help message and exit.               |
+
+### ctf
+| command            | type           | description                                              |
+| ------------------ | -------------- | ---------------------------------------------------------|
+| -l, --lang         | None           | Filter by Language                                       |
+| -p, --paid         | None           | Filter by Price, when price is equal to paid             |
+| -f, --free         | None           | Filter by Price, when price is equal to free             |
+| -o, --output       | json,csv,table | Output format                                            |
+| -of, --output-file | file path      | Output file name if you want.                            |
+| -h, --help         | None           | Show list ctf help message and exit.                     |
+
+### os
+| command            | type           | description                                              |
+| ------------------ | -------------- | ---------------------------------------------------------|
+| -b, --base         | Text           | Filter by base(ex: Linux)                                |
+| -o, --output       | json,csv,table | Output format                                            |
+| -of, --output-file | file path      | Output file name if you want.                            |
+| -h, --help         | None           | Show list ctf help message and exit.                     |
 
 # Download
 

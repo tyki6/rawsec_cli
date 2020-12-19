@@ -22,10 +22,14 @@ from rawsec_cli.tools import get_tools_category
 @click.group("list")
 def list_command():
     """
-    List projects by category (tools, resources, ctf, os).\n
-    full documentation: https://rawsec-cli.readthedocs.io/
+    \b
+    List projects by category (tools, resources, ctf, os).
+    Full documentation: https://rawsec-cli.readthedocs.io/
     \f
-    :return:
+    Returns
+    -------
+    None
+        List of project
     """
     pass
 
@@ -93,18 +97,37 @@ def tools(
     output_file,
 ):
     """
-    List all tools inventoried on rawsec, you can add category.\n
-    full documentation: https://rawsec-cli.readthedocs.io/
+    \b
+    List all tools inventoried on rawsec, you can add category.
+    Full documentation: https://rawsec-cli.readthedocs.io/
     \f
-    :param ctx: click context
-    :param str category: category tools
-    :param str lang: filter by lang
-    :param bool paid: paid
-    :param bool free: free
-    :param bool online:
-    :param bool offline:
-    :param bool blackarch: present or not
-    :return:
+    Parameters
+    ----------
+    ctx: Context
+        Click context
+    category: str, optional
+        Category name.
+    lang: str, optional
+        Language name.
+    paid: bool, optional
+        paid or not.
+    free: bool, optional
+        free or not.
+    online: bool, optional
+        online or not.
+    offline: bool, optional
+        offline or not.
+    blackarch: bool, optional
+        present on blackarch.
+    output: str, optional
+        output format.
+    output_file: str, optional
+        output file name, extension file will override output parameter.
+
+    Returns
+    -------
+    None
+        Return in output format(Default: table) in output_file(Default: stdout) a list of rawsec tools.
     """
     wanted_keys = [
         "name",
@@ -180,14 +203,29 @@ def tools(
 )
 def resources(ctx, category, paid, free, output, output_file):
     """
-    List all resources inventoried on rawsec, you can add category.\n
-    full documentation: https://rawsec-cli.readthedocs.io/
+    \b
+    List all resources inventoried on rawsec, you can add category.
+    Full documentation: https://rawsec-cli.readthedocs.io/
     \f
-    :param ctx: context
-    :param str category:
-    :param bool paid:
-    :param bool free:
-    :return:
+    Parameters
+    ----------
+    ctx: Context
+        Click context.
+    category: str, optional
+        Category name.
+    paid: bool, optional
+        paid or not.
+    free: bool, optional
+        free or not.
+    output: str, optional
+        output format.
+    output_file: str, optional
+        output file name, extension file will override output parameter.
+
+    Returns
+    -------
+    None
+        Return in output format(Default: table) in output_file(Default: stdout) a list of rawsec resources.
     """
     wanted_keys = ["name", "website", "source", "description", "price"]
     if category and category not in get_resources_category(
@@ -258,15 +296,31 @@ def resources(ctx, category, paid, free, output, output_file):
 )
 def ctf(ctx, category, lang, paid, free, output, output_file):
     """
-    List all ctf platforms inventoried on rawsec, you can add category.\n
-    full documentation: https://rawsec-cli.readthedocs.io/
+    \b
+    List all ctf platforms inventoried on rawsec, you can add category.
+    Full documentation: https://rawsec-cli.readthedocs.io/
     \f
-    :param ctx: click context
-    :param str category:
-    :param str lang:
-    :param bool paid:
-    :param bool free:
-    :return:
+    Parameters
+    ----------
+    ctx: Context
+        Click context.
+    category: str, optional
+        Category name.
+    lang: str, optional
+        Language name
+    paid: bool, optional
+        paid or not.
+    free: bool, optional
+        free or not.
+    output: str, optional
+        output format.
+    output_file: str, optional
+        output file name, extension file will override output parameter.
+
+    Returns
+    -------
+    None
+        Return in output format(Default: table) in output_file(Default: stdout) a list of rawsec ctf.
     """
     wanted_keys = [
         "name",
@@ -321,13 +375,27 @@ def ctf(ctx, category, lang, paid, free, output, output_file):
 )
 def os(ctx, category, base, output, output_file):
     """
-    List all os inventoried on rawsec, you can add category.\n
-    full documentation: https://rawsec-cli.readthedocs.io/
+    \b
+    List all os inventoried on rawsec, you can add category.
+    Full documentation: https://rawsec-cli.readthedocs.io/
     \f
-    :param ctx: click context
-    :param str category:
-    :param str base:
-    :return:
+    Parameters
+    ----------
+    ctx: Context
+        Click context.
+    category: str, optional
+        Category name.
+    base: str, optional
+        Base name(ex: Linux).
+    output: str, optional
+        output format.
+    output_file: str, optional
+        output file name, extension file will override output parameter.
+
+    Returns
+    -------
+    None
+        Return in output format(Default: table) in output_file(Default: stdout) a list of rawsec ctf.
     """
     wanted_keys = ["os", "base", "description", "link"]
     if category and category not in get_operating_category(
