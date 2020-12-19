@@ -1,5 +1,8 @@
 # Changelog
 All notable changes to this project will be documented in this file.
+## [1.1.1] - 19-12-2020
+### Changed
+- docker img
 
 ## [1.1.0] - 19-12-2020
 ### Added
