@@ -1,8 +1,8 @@
 # rawsec_cli
 [![mBouamama](https://github.com/mBouamama/rawsec_cli/workflows/Unit%20Test/badge.svg)](https://github.com/mBouamama/rawsec_cli)
-[![PyPI](https://img.shields.io/pypi/v/rawsec)](https://pypi.org/project/rawsec/)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rawsec)](https://pypi.org/project/rawsec/)
-[![PyPI - Download](https://pepy.tech/badge/rawsec)](https://pepy.tech/project/rawsec)
+[![PyPI](https://img.shields.io/pypi/v/rawsec-cli)](https://pypi.org/project/rawsec-cli/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rawsec-cli)](https://pypi.org/project/rawsec-cli/)
+[![PyPI - Download](https://pepy.tech/badge/rawsec-cli)](https://pepy.tech/project/rawsec-cli)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/mBouamama/rawsec_cli)](https://github.com/mBouamama/rawsec_cli/releases)
 [![Documentation Status](https://readthedocs.org/projects/rawsec_cli/badge/?version=latest)](https://rawsec_cli.readthedocs.io/en/latest/?badge=latest)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/mBouamama/rawsec_cli)

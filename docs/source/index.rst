@@ -8,24 +8,24 @@ Rawsec Cli
 .. image:: https://github.com/mBouamama/rawsec_cli/workflows/Unit%20Test/badge.svg
     :target: https://github.com/mBouamama/rawsec_cli
 
-.. image:: https://img.shields.io/pypi/v/rawsec
-    :target: https://pypi.org/project/rawsec/
+.. image:: https://img.shields.io/pypi/v/rawsec-cli
+    :target: https://pypi.org/project/rawsec-cli/
 
-.. image:: https://img.shields.io/pypi/pyversions/rawsec.svg
-    :target: https://pypi.org/project/rawsec/
+.. image:: https://img.shields.io/pypi/pyversions/rawsec-cli.svg
+    :target: https://pypi.org/project/rawsec-cli/
 
 .. image:: https://results.pre-commit.ci/badge/github/mBouamama/rawsec_cli/main.svg
    :target: https://results.pre-commit.ci/latest/github/mBouamama/rawsec_cli/main
    :alt: pre-commit.ci status
 
-.. image:: https://pepy.tech/badge/rawsec
-    :target: https://pepy.tech/project/rawsec
+.. image:: https://pepy.tech/badge/rawsec-cli
+    :target: https://pepy.tech/project/rawsec-cli
 
 .. image:: https://pyup.io/repos/github/mBouamama/rawsec_cli/shield.svg
     :target: https://pyup.io/repos/github/mBouamama/rawsec_cli/
 
-.. image:: https://img.shields.io/pypi/l/rawsec.svg
-    :target: https://pypi.org/project/rawsec/
+.. image:: https://img.shields.io/pypi/l/rawsec-cli.svg
+    :target: https://pypi.org/project/rawsec-cli/
 
 .. image:: https://codecov.io/gh/mBouamama/rawsec_cli/branch/main/graph/badge.svg?token=YKclZIzF6Z
     :target: https://codecov.io/gh/mBouamama/rawsec_cli
