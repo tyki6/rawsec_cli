@@ -1,26 +1,39 @@
 """Filter file"""
+from typing import List, Dict
 
 
 def filter_projects(
-    projects,
+    projects: List,
     lang=None,
     paid=False,
     free=False,
     online=False,
     offline=False,
     blackarch=False,
-):
+) -> List[Dict]:
     """
     Filter method.
-    :param list projects: all projects
-    :param str lang:
-    :param bool paid:
-    :param bool free:
-    :param bool online:
-    :param bool offline:
-    :param bool blackarch:
-    :return: project filter
-    :rtype: list
+    Parameters
+    ----------
+    projects: List
+        project List.
+    lang: str, optional
+        Language name.
+    paid: bool, optional
+        paid or not.
+    free: bool, optional
+        free or not.
+    online: bool, optional
+        online or not.
+    offline: bool, optional
+        offline or not.
+    blackarch: bool, optional
+        present on blackarch.
+
+    Returns
+    -------
+    List[Dict]
+        project filter
     """
     if lang is not None and lang != "":
         projects = [

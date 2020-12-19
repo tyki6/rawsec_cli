@@ -1,22 +1,29 @@
+"""Output file"""
 import csv
 import json
 import os
 import sys
 import webbrowser
+from typing import List
 
 import click
 from columnar import columnar
 
 
-def print_output(projects: list, output="table", file=None, wanted_keys=None):
+def print_output(projects: List, output="table", file=None, wanted_keys=None):
     """
     Generate Output
     Parameters
     ----------
-    projects: list
+    projects: List
     output: str
     file: str or None
-    wanted_keys: list or None
+    wanted_keys: List, optional
+
+    Returns
+    ----------
+    None
+        output
     """
     if wanted_keys is None:
         wanted_keys = []
