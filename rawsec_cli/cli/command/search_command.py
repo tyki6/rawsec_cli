@@ -1,9 +1,9 @@
 """Search command cli file"""
 import click
 
-from rawsec_cli.filter import filterProjects
+from rawsec_cli.filter import filter_projects
 from rawsec_cli.output import print_output
-from rawsec_cli.search import searchProject
+from rawsec_cli.search import search_project
 
 
 @click.command()
@@ -83,8 +83,8 @@ def search(
     :param bool blackarch: present or not
     :return:
     """
-    projects = searchProject(ctx.obj["json"], project)
-    projects = filterProjects(
+    projects = search_project(ctx.obj["json"], project)
+    projects = filter_projects(
         projects,
         lang,
         paid,

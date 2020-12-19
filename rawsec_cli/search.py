@@ -1,11 +1,11 @@
 """Search rawsec project file"""
-from rawsec_cli.tools import getAllCTF
-from rawsec_cli.tools import getAllOperating
-from rawsec_cli.tools import getAllResources
-from rawsec_cli.tools import getAllTools
+from rawsec_cli.tools import get_all_ctf
+from rawsec_cli.tools import get_all_operating
+from rawsec_cli.tools import get_all_resources
+from rawsec_cli.tools import get_all_tools
 
 
-def searchProjectTools(json, project):
+def search_project_tools(json, project):
     """
     Search project in tool's category
     :param dict json: rawsec projects json
@@ -13,17 +13,17 @@ def searchProjectTools(json, project):
     :return: list of projects
     :rtype: list
     """
-    listProjects = list()
-    for tool in getAllTools(json):
+    list_projects = list()
+    for tool in get_all_tools(json):
         if ("name" in tool and project.lower() in tool["name"].lower()) or (
             "description" in tool
             and project.lower() in tool["description"].lower()
         ):
-            listProjects.append(tool)
-    return listProjects
+            list_projects.append(tool)
+    return list_projects
 
 
-def searchProjectResources(json, project):
+def search_project_resources(json, project):
     """
     Search project in resources's category
     :param dict json: rawsec projects json
@@ -31,19 +31,19 @@ def searchProjectResources(json, project):
     :return: list of projects
     :rtype: list
     """
-    listProjects = list()
-    for resource in getAllResources(json):
+    list_projects = list()
+    for resource in get_all_resources(json):
         if (
             "name" in resource and project.lower() in resource["name"].lower()
         ) or (
             "description" in resource
             and project.lower() in resource["description"].lower()
         ):
-            listProjects.append(resource)
-    return listProjects
+            list_projects.append(resource)
+    return list_projects
 
 
-def searchProjectCTF(json, project):
+def search_project_ctf(json, project):
     """
     Search project in ctf's category
     :param dict json: rawsec projects json
@@ -51,17 +51,17 @@ def searchProjectCTF(json, project):
     :return: list of projects
     :rtype: list
     """
-    listProjects = list()
-    for ctf in getAllCTF(json):
+    list_projects = list()
+    for ctf in get_all_ctf(json):
         if ("name" in ctf and project.lower() in ctf["name"].lower()) or (
             "description" in ctf
             and project.lower() in ctf["description"].lower()
         ):
-            listProjects.append(ctf)
-    return listProjects
+            list_projects.append(ctf)
+    return list_projects
 
 
-def searchProjectOperating(json, project):
+def search_project_operating(json, project):
     """
     Search project in os's category
     :param dict json: rawsec projects json
@@ -69,14 +69,14 @@ def searchProjectOperating(json, project):
     :return: list of projects
     :rtype: list
     """
-    listProjects = list()
-    for operating in getAllOperating(json):
+    list_projects = list()
+    for operating in get_all_operating(json):
         if "os" in operating and project.lower() in operating["os"].lower():
-            listProjects.append(operating)
-    return listProjects
+            list_projects.append(operating)
+    return list_projects
 
 
-def searchProject(json, project):
+def search_project(json, project):
     """
     Search project in all category
     :param dict json: rawsec projects json
@@ -85,7 +85,8 @@ def searchProject(json, project):
     :rtype: list
     """
     return (
-        searchProjectTools(json, project)
-        + searchProjectCTF(json, project)
-        + searchProjectResources(json, project)
+        search_project_tools(json, project)
+        + search_project_ctf(json, project)
+        + search_project_resources(json, project)
+        + search_project_operating(json, project)
     )
