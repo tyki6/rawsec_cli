@@ -8,6 +8,7 @@ import requests
 def load_inventory_json() -> Dict:
     """
     Get rawsec inventory json.
+
     Returns
     -------
     Dict
@@ -23,14 +24,16 @@ def load_inventory_json() -> Dict:
 def get_tools_json(json: Dict) -> Dict:
     """
     Get tools in rawsec json.
+
     Parameters
     ----------
     json: Dict
-        rawsec json
+        rawsec json.
+
     Returns
     -------
     Dict
-        tools dict
+        tools dict.
     """
     return json["tools"] if "tools" in json else {}
 
@@ -38,14 +41,16 @@ def get_tools_json(json: Dict) -> Dict:
 def get_resources_json(json: Dict) -> Dict:
     """
     Get resources in rawsec json.
+
     Parameters
     ----------
     json: Dict
-        rawsec json
+        rawsec json.
+
     Returns
     -------
     Dict
-        resources dict
+        resources dict.
     """
     return json["resources"] if "resources" in json else {}
 
@@ -53,14 +58,16 @@ def get_resources_json(json: Dict) -> Dict:
 def get_ctf_json(json: Dict) -> Dict:
     """
     Get ctf in rawsec json.
+
     Parameters
     ----------
     json: Dict
-        rawsec json
+        rawsec json.
+
     Returns
     -------
     Dict
-        ctf dict
+        ctf dict.
     """
     return json["ctf_platforms"] if "ctf_platforms" in json else {}
 
@@ -68,14 +75,16 @@ def get_ctf_json(json: Dict) -> Dict:
 def get_operating_json(json: Dict) -> Dict:
     """
     Get operating in rawsec json.
+
     Parameters
     ----------
     json: Dict
-        rawsec json
+        rawsec json.
+
     Returns
     -------
     Dict
-        operating dict
+        operating dict.
     """
     return json["operating_systems"] if "operating_systems" in json else {}
 
@@ -84,14 +93,16 @@ def get_operating_json(json: Dict) -> Dict:
 def get_tools_category(json: Dict) -> List[str]:
     """
     Get tool category present on rawsec.
+
     Parameters
     ----------
     json: Dict
-        rawsec json
+        rawsec json.
+
     Returns
     -------
     List[str]
-        tool category list
+        tool category list.
     """
     return list(get_tools_json(json).keys())
 
@@ -99,14 +110,16 @@ def get_tools_category(json: Dict) -> List[str]:
 def get_resources_category(json: Dict) -> List[str]:
     """
     Get resources category present on rawsec.
+
     Parameters
     ----------
     json: Dict
-        rawsec json
+        rawsec json.
+
     Returns
     -------
     List[str]
-        resources category list
+        resources category list.
     """
     return list(get_resources_json(json).keys())
 
@@ -114,14 +127,16 @@ def get_resources_category(json: Dict) -> List[str]:
 def get_ctf_category(json: Dict) -> List[str]:
     """
     Get ctf category present on rawsec.
+
     Parameters
     ----------
     json: Dict
-        rawsec json
+        rawsec json.
+
     Returns
     -------
     List[str]
-        ctf category list
+        ctf category list.
     """
     return list(get_ctf_json(json).keys())
 
@@ -129,14 +144,16 @@ def get_ctf_category(json: Dict) -> List[str]:
 def get_operating_category(json: Dict) -> List[str]:
     """
     Get os category present on rawsec.
+
     Parameters
     ----------
     json: Dict
-        rawsec json
+        rawsec json.
+
     Returns
     -------
     List[str]
-        os category list
+        os category list.
     """
     return list(get_operating_json(json).keys())
 
@@ -145,16 +162,18 @@ def get_operating_category(json: Dict) -> List[str]:
 def get_tools_by_category(json: Dict, category: str) -> List[Dict]:
     """
     Get tools by category in rawsec json.
+
     Parameters
     ----------
     json: Dict
         rawsec json.
     category: str
         category.
+
     Returns
     -------
     List[Dict]
-        tools by category list, [] if category is not available
+        tools by category list, [] if category is not available.
     """
     tools = get_tools_json(json)
     return (
@@ -167,16 +186,18 @@ def get_tools_by_category(json: Dict, category: str) -> List[Dict]:
 def get_resources_by_category(json: Dict, category: str) -> List[Dict]:
     """
     Get resources by category in rawsec json.
+
     Parameters
     ----------
     json: Dict
         rawsec json.
     category: str
         category.
+
     Returns
     -------
     List[Dict]
-        resources by category list, [] if category is not available
+        resources by category list, [] if category is not available.
     """
     resources = get_resources_json(json)
     return (
@@ -189,16 +210,18 @@ def get_resources_by_category(json: Dict, category: str) -> List[Dict]:
 def get_ctf_by_category(json: Dict, category: str) -> List[Dict]:
     """
     Get ctf_platforms by category in rawsec json.
+
     Parameters
     ----------
     json: Dict
         rawsec json.
     category: str
         category.
+
     Returns
     -------
     List[Dict]
-        ctf_platforms by category list, [] if category is not available
+        ctf_platforms by category list, [] if category is not available.
     """
     ctf = get_ctf_json(json)
     return (
@@ -211,16 +234,18 @@ def get_ctf_by_category(json: Dict, category: str) -> List[Dict]:
 def get_operating_by_category(json: Dict, category: str) -> List[Dict]:
     """
     Get operating_systems by category in rawsec json.
+
     Parameters
     ----------
     json: Dict
         rawsec json.
     category: str
         category.
+
     Returns
     -------
     List[Dict]
-        operating_systems by category list, [] if category is not available
+        operating_systems by category list, [] if category is not available.
     """
     os = get_operating_json(json)
     return (
@@ -233,10 +258,12 @@ def get_operating_by_category(json: Dict, category: str) -> List[Dict]:
 def get_all_tools(json: Dict) -> List[Dict]:
     """
     Get all tools in rawsec json.
+
     Parameters
     ----------
     json: Dict
         rawsec json.
+
     Returns
     -------
     List[Dict]
@@ -252,14 +279,16 @@ def get_all_tools(json: Dict) -> List[Dict]:
 def get_all_resources(json: Dict) -> List[Dict]:
     """
     Get all resources in rawsec json.
+
     Parameters
     ----------
     json: Dict
         rawsec json.
+
     Returns
     -------
     List[Dict]
-        resources list
+        resources list.
     """
     list_projects = list()
     for category_resources in get_resources_category(json):
@@ -271,14 +300,17 @@ def get_all_resources(json: Dict) -> List[Dict]:
 def get_all_ctf(json: Dict) -> List[Dict]:
     """
     Get all ctf in rawsec json.
+
     Parameters
     ----------
     json: Dict
         rawsec json.
+
     Returns
     -------
     List[Dict]
-        ctf list
+        ctf list.
+
     """
     list_projects = list()
     for category_ctf in get_ctf_category(json):
@@ -290,6 +322,7 @@ def get_all_ctf(json: Dict) -> List[Dict]:
 def get_all_operating(json: Dict) -> List[Dict]:
     """
     Get all os in rawsec json.
+
     Parameters
     ----------
     json: Dict
@@ -297,7 +330,8 @@ def get_all_operating(json: Dict) -> List[Dict]:
     Returns
     -------
     List[Dict]
-        os list
+        os list.
+
     """
     list_projects = list()
     for category_operating in get_operating_category(json):

@@ -49,7 +49,7 @@ This cli can search a project,list all projects by category, you can filter your
 Getting help
 --------
 
-If the Documentation  doesn’t answer your question, you can discuss rawsec-cli or get help using it on `Rawsec-cli's repository discussion <https://github.com/mBouamama/rawsec_cli/discussions.>`_
+If the Documentation  doesn’t answer your question, you can discuss rawsec-cli or get help using it on `Rawsec-cli's repository discussion <https://github.com/mBouamama/rawsec_cli/discussions>`_.
 Bug reports are gladly accepted at the `GitHub issue tracker <https://github.com/mBouamama/rawsec_cli/issues>`_. GitHub also hosts the `code repository <https://github.com/mBouamama/rawsec_cli>`_.
 
 

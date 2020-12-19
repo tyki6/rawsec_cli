@@ -20,12 +20,14 @@ def cli(ctx, version):
     This cli can search a project,list all projects by category, you can filter your research with option --help for more information.
     Full documentation: https://rawsec-cli.readthedocs.io/
     \f
+
     Parameters
     ----------
     ctx: click Context
         click Context.
     version: bool
         version flag.
+
     Returns
     -------
     None

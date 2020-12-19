@@ -26,10 +26,11 @@ def list_command():
     List projects by category (tools, resources, ctf, os).
     Full documentation: https://rawsec-cli.readthedocs.io/
     \f
+
     Returns
     -------
     None
-        List of project
+        List of project.
     """
     pass
 
@@ -101,6 +102,7 @@ def tools(
     List all tools inventoried on rawsec, you can add category.
     Full documentation: https://rawsec-cli.readthedocs.io/
     \f
+
     Parameters
     ----------
     ctx: Context
@@ -207,6 +209,7 @@ def resources(ctx, category, paid, free, output, output_file):
     List all resources inventoried on rawsec, you can add category.
     Full documentation: https://rawsec-cli.readthedocs.io/
     \f
+
     Parameters
     ----------
     ctx: Context

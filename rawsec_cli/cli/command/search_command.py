@@ -74,10 +74,11 @@ def search(
     Search in name and description.
     Full documentation: https://rawsec-cli.readthedocs.io/
     \f
+
     Parameters
     ----------
     ctx: Context
-        Click context
+        Click context.
     project: str, optional
         Keyword.
     lang: str, optional

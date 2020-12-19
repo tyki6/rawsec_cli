@@ -14,6 +14,7 @@ def filter_projects(
 ) -> List[Dict]:
     """
     Filter method.
+
     Parameters
     ----------
     projects: List
@@ -34,7 +35,7 @@ def filter_projects(
     Returns
     -------
     List[Dict]
-        project filter
+        project filter.
     """
     if lang is not None and lang != "":
         projects = [

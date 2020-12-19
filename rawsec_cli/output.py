@@ -12,13 +12,18 @@ from columnar import columnar
 
 def print_output(projects: List, output="table", file=None, wanted_keys=None):
     """
-    Generate Output
+    Generate Output.
+
     Parameters
     ----------
-    projects: List
+    projects: List[Dict]
+        project list.
     output: str
+        output format.
     file: str or None
+        file name, file extension will erased output variable.
     wanted_keys: List, optional
+        only keys you want.
 
     Returns
     ----------
@@ -39,11 +44,14 @@ def print_output(projects: List, output="table", file=None, wanted_keys=None):
 
 def json_output(projects: list, file=None):
     """
-    Generate json output format
+    Generate json output format.
+
     Parameters
     ----------
-    projects: list of dict
+    projects: List[Dict]
+        project list.
     file: str, optional
+        file name.
     """
     if file is not None:
         with open(file, "w") as f:
@@ -54,12 +62,16 @@ def json_output(projects: list, file=None):
 
 def csv_output(projects: list, wanted_keys: list, file=None):
     """
-    Generate csv output format
+    Generate csv output format.
+
     Parameters
     ----------
-    projects: list of dict
-    wanted_keys: list of str
+    projects: List[Dict]
+        projects list.
+    wanted_keys: List[str]
+        only keys you want.
     file: str, optional
+        file name.
     """
     if file is not None:
         fileobj = open(file, "w")
@@ -73,12 +85,16 @@ def csv_output(projects: list, wanted_keys: list, file=None):
 
 def table_output(projects: list, wanted_keys: list, file=None):
     """
-    Generate txt output format, use columnar for generate table
+    Generate txt output format, use columnar for generate table.
+
     Parameters
     ----------
-    projects: list of dict
-    wanted_keys: list of str
-    file: str or None, optional
+    projects: List[Dict]
+        projects list.
+    wanted_keys: List[str]
+        only keys you want.
+    file: str, optional
+        file name.
     """
     table_projects = list()
     for project in projects:
