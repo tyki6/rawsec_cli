@@ -1,7 +1,7 @@
 """Filter file"""
 
 
-def filterProjects(
+def filter_projects(
     projects,
     lang=None,
     paid=False,

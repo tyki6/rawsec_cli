@@ -3,24 +3,24 @@ import sys
 
 import click
 
-from rawsec_cli.filter import filterProjects
+from rawsec_cli.filter import filter_projects
 from rawsec_cli.output import print_output
-from rawsec_cli.tools import getAllCTF
-from rawsec_cli.tools import getAllOperating
-from rawsec_cli.tools import getAllResources
-from rawsec_cli.tools import getAllTools
-from rawsec_cli.tools import getCTFByCategory
-from rawsec_cli.tools import getCTFCategory
-from rawsec_cli.tools import getOperatingByCategory
-from rawsec_cli.tools import getOperatingCategory
-from rawsec_cli.tools import getResourcesByCategory
-from rawsec_cli.tools import getResourcesCategory
-from rawsec_cli.tools import getToolsByCategory
-from rawsec_cli.tools import getToolsCategory
+from rawsec_cli.tools import get_all_ctf
+from rawsec_cli.tools import get_all_operating
+from rawsec_cli.tools import get_all_resources
+from rawsec_cli.tools import get_all_tools
+from rawsec_cli.tools import get_ctf_by_category
+from rawsec_cli.tools import get_ctf_category
+from rawsec_cli.tools import get_operating_by_category
+from rawsec_cli.tools import get_operating_category
+from rawsec_cli.tools import get_resources_by_category
+from rawsec_cli.tools import get_resources_category
+from rawsec_cli.tools import get_tools_by_category
+from rawsec_cli.tools import get_tools_category
 
 
 @click.group("list")
-def listCommand():
+def list_command():
     """
     List projects by category (tools, resources, ctf, os).\n
     full documentation: https://rawsec-cli.readthedocs.io/
@@ -30,7 +30,7 @@ def listCommand():
     pass
 
 
-@listCommand.command("tools")
+@list_command.command("tools")
 @click.pass_context
 @click.argument("category", required=False)
 @click.option("--lang", "-l", help="Filter by Language")
@@ -117,20 +117,20 @@ def tools(
         "blackarch",
     ]
 
-    if category and category not in getToolsCategory(json=ctx.obj["json"]):
+    if category and category not in get_tools_category(json=ctx.obj["json"]):
         click.echo("Category available:")
-        for category in getToolsCategory(json=ctx.obj["json"]):
+        for category in get_tools_category(json=ctx.obj["json"]):
             click.echo(f"\t{category}")
         sys.exit("Not a good category")
     if category:
-        projects = getToolsByCategory(ctx.obj["json"], category)
+        projects = get_tools_by_category(ctx.obj["json"], category)
     else:
-        projects = getAllTools(ctx.obj["json"])
+        projects = get_all_tools(ctx.obj["json"])
     projects = [
         {k: tool[k] if k in tool else "" for k in wanted_keys}
         for tool in projects
     ]
-    projects = filterProjects(
+    projects = filter_projects(
         projects,
         lang=lang,
         paid=paid,
@@ -147,7 +147,7 @@ def tools(
     )
 
 
-@listCommand.command("resources")
+@list_command.command("resources")
 @click.pass_context
 @click.argument("category", required=False)
 @click.option(
@@ -190,17 +190,19 @@ def resources(ctx, category, paid, free, output, output_file):
     :return:
     """
     wanted_keys = ["name", "website", "source", "description", "price"]
-    if category and category not in getResourcesCategory(json=ctx.obj["json"]):
+    if category and category not in get_resources_category(
+        json=ctx.obj["json"],
+    ):
         click.echo("Category available:")
-        for category in getResourcesCategory(json=ctx.obj["json"]):
+        for category in get_resources_category(json=ctx.obj["json"]):
             click.echo(f"\t{category}")
         sys.exit("Not a good category")
     if category:
-        projects = getResourcesByCategory(ctx.obj["json"], category)
+        projects = get_resources_by_category(ctx.obj["json"], category)
     else:
-        projects = getAllResources(ctx.obj["json"])
+        projects = get_all_resources(ctx.obj["json"])
 
-    projects = filterProjects(projects, paid=paid, free=free)
+    projects = filter_projects(projects, paid=paid, free=free)
     resourcesList = list()
     for resource in projects:
         for link in resource["links"]:
@@ -222,7 +224,7 @@ def resources(ctx, category, paid, free, output, output_file):
     )
 
 
-@listCommand.command()
+@list_command.command()
 @click.pass_context
 @click.argument("category", required=False)
 @click.option("--lang", "-l", help="Filter by Language")
@@ -274,21 +276,21 @@ def ctf(ctx, category, lang, paid, free, output, output_file):
         "language",
         "price",
     ]
-    if category and category not in getCTFCategory(json=ctx.obj["json"]):
+    if category and category not in get_ctf_category(json=ctx.obj["json"]):
         click.echo("Category available:")
-        for category in getCTFCategory(json=ctx.obj["json"]):
+        for category in get_ctf_category(json=ctx.obj["json"]):
             click.echo(f"\t{category}")
         sys.exit("Not a good category")
     if category:
-        projects = getCTFByCategory(ctx.obj["json"], category)
+        projects = get_ctf_by_category(ctx.obj["json"], category)
     else:
-        projects = getAllCTF(ctx.obj["json"])
+        projects = get_all_ctf(ctx.obj["json"])
 
     projects = [
         {k: tool[k] if k in tool else "" for k in wanted_keys}
         for tool in projects
     ]
-    projects = filterProjects(projects, lang=lang, paid=paid, free=free)
+    projects = filter_projects(projects, lang=lang, paid=paid, free=free)
     print_output(
         projects=projects,
         output=output,
@@ -297,7 +299,7 @@ def ctf(ctx, category, lang, paid, free, output, output_file):
     )
 
 
-@listCommand.command()
+@list_command.command()
 @click.pass_context
 @click.argument("category", required=False)
 @click.option("--base", "-b", help="Filter by base")
@@ -328,17 +330,19 @@ def os(ctx, category, base, output, output_file):
     :return:
     """
     wanted_keys = ["os", "base", "description", "link"]
-    if category and category not in getOperatingCategory(json=ctx.obj["json"]):
+    if category and category not in get_operating_category(
+        json=ctx.obj["json"],
+    ):
         click.echo("Category available:")
-        for category in getOperatingCategory(json=ctx.obj["json"]):
+        for category in get_operating_category(json=ctx.obj["json"]):
             click.echo(f"\t{category}")
         sys.exit("Not a good category")
     if category:
         if category == "project_transferred":
             wanted_keys = ["from", "to"]
-        projects = getOperatingByCategory(ctx.obj["json"], category)
+        projects = get_operating_by_category(ctx.obj["json"], category)
     else:
-        projects = getAllOperating(ctx.obj["json"])
+        projects = get_all_operating(ctx.obj["json"])
     projects = [
         {k: os[k] if k in os else "" for k in wanted_keys} for os in projects
     ]

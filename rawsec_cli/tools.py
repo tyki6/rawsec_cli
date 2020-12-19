@@ -2,7 +2,7 @@
 import requests
 
 
-def loadInventoryJson():
+def load_inventory_json():
     """
     Get inventory json
     :return: rawsec dict
@@ -15,7 +15,7 @@ def loadInventoryJson():
 
 
 # Items
-def getToolsJson(json):
+def get_tools_json(json):
     """
     Get tools in rawsec json
     :param dict json: rawsec json
@@ -25,7 +25,7 @@ def getToolsJson(json):
     return json["tools"] if "tools" in json else {}
 
 
-def getResourcesJson(json):
+def get_resources_json(json):
     """
     Get resources in rawsec json
     :param dict json: rawsec json
@@ -35,7 +35,7 @@ def getResourcesJson(json):
     return json["resources"] if "resources" in json else {}
 
 
-def getCTFJson(json):
+def get_ctf_json(json):
     """
     Get ctf_platforms in rawsec json
     :param dict json: rawsec json
@@ -45,7 +45,7 @@ def getCTFJson(json):
     return json["ctf_platforms"] if "ctf_platforms" in json else {}
 
 
-def getOperatingJson(json):
+def get_operating_json(json):
     """
     Get operating_systems in rawsec json
     :param dict json: rawsec json
@@ -56,48 +56,48 @@ def getOperatingJson(json):
 
 
 # Categroy For each Items
-def getToolsCategory(json):
+def get_tools_category(json):
     """
     Get tool category present on rawsec
     :param dict json: rawsec json
     :return: tool category list
     :rtype: list
     """
-    return list(getToolsJson(json).keys())
+    return list(get_tools_json(json).keys())
 
 
-def getResourcesCategory(json):
+def get_resources_category(json):
     """
     Get tool category present on rawsec
     :param dict json: rawsec json
     :return: tool category list
     :rtype: list
     """
-    return list(getResourcesJson(json).keys())
+    return list(get_resources_json(json).keys())
 
 
-def getCTFCategory(json):
+def get_ctf_category(json):
     """
     Get ctf category present on rawsec
     :param dict json: rawsec json
     :return: ctf category list
     :rtype: list
     """
-    return list(getCTFJson(json).keys())
+    return list(get_ctf_json(json).keys())
 
 
-def getOperatingCategory(json):
+def get_operating_category(json):
     """
     Get os category present on rawsec
     :param dict json: rawsec json
     :return: os category list
     :rtype: list
     """
-    return list(getOperatingJson(json).keys())
+    return list(get_operating_json(json).keys())
 
 
 # List for each Items
-def getToolsByCategory(json, category):
+def get_tools_by_category(json, category):
     """
     Get tools by category in rawsec json
     :param dict json: rawsec json
@@ -105,7 +105,7 @@ def getToolsByCategory(json, category):
     :return: tools by category list, [] is category is not available.
     :rtype: list
     """
-    tools = getToolsJson(json)
+    tools = get_tools_json(json)
     return (
         tools[category]["tools"]
         if category in tools and "tools" in tools[category]
@@ -113,7 +113,7 @@ def getToolsByCategory(json, category):
     )
 
 
-def getResourcesByCategory(json, category):
+def get_resources_by_category(json, category):
     """
     Get resources by category in rawsec json
     :param dict json: rawsec json
@@ -121,7 +121,7 @@ def getResourcesByCategory(json, category):
     :return: resources by category list, [] is category is not available.
     :rtype: list
     """
-    resources = getResourcesJson(json)
+    resources = get_resources_json(json)
     return (
         resources[category]["resources"]
         if category in resources and "resources" in resources[category]
@@ -129,7 +129,7 @@ def getResourcesByCategory(json, category):
     )
 
 
-def getCTFByCategory(json, category):
+def get_ctf_by_category(json, category):
     """
     Get ctf_platforms by category in rawsec json
     :param dict json: rawsec json
@@ -137,7 +137,7 @@ def getCTFByCategory(json, category):
     :return: ctf_platforms by category list, [] is category is not available.
     :rtype: list
     """
-    ctf = getCTFJson(json)
+    ctf = get_ctf_json(json)
     return (
         ctf[category]["ctf_platforms"]
         if category in ctf and "ctf_platforms" in ctf[category]
@@ -145,7 +145,7 @@ def getCTFByCategory(json, category):
     )
 
 
-def getOperatingByCategory(json, category):
+def get_operating_by_category(json, category):
     """
     Get operating_systems by category in rawsec json
     :param dict json: rawsec json
@@ -153,7 +153,7 @@ def getOperatingByCategory(json, category):
     :return: operating_systems by category list, [] is category is not available.
     :rtype: list
     """
-    os = getOperatingJson(json)
+    os = get_operating_json(json)
     return (
         os[category]["operating_systems"]
         if category in os and "operating_systems" in os[category]
@@ -161,59 +161,59 @@ def getOperatingByCategory(json, category):
     )
 
 
-def getAllTools(json):
+def get_all_tools(json):
     """
     Get all tools in rawsec json
     :param dict json: rawsec json
     :return: tools list
     :rtype: list
     """
-    listProjects = list()
-    for categoryTools in getToolsCategory(json):
-        for tool in getToolsByCategory(json, categoryTools):
-            listProjects.append(tool)
-    return listProjects
+    list_projects = list()
+    for category_tools in get_tools_category(json):
+        for tool in get_tools_by_category(json, category_tools):
+            list_projects.append(tool)
+    return list_projects
 
 
-def getAllResources(json):
+def get_all_resources(json):
     """
     Get all resources in rawsec json
     :param dict json: rawsec json
     :return: resources list
     :rtype: list
     """
-    listProjects = list()
-    for categoryResources in getResourcesCategory(json):
-        for tool in getResourcesByCategory(json, categoryResources):
-            listProjects.append(tool)
-    return listProjects
+    list_projects = list()
+    for category_resources in get_resources_category(json):
+        for tool in get_resources_by_category(json, category_resources):
+            list_projects.append(tool)
+    return list_projects
 
 
-def getAllCTF(json):
+def get_all_ctf(json):
     """
     Get all ctf in rawsec json
     :param dict json: rawsec json
     :return: ctf list
     :rtype: list
     """
-    listProjects = list()
-    for categoryCTF in getCTFCategory(json):
-        for tool in getCTFByCategory(json, categoryCTF):
-            listProjects.append(tool)
-    return listProjects
+    list_projects = list()
+    for category_ctf in get_ctf_category(json):
+        for tool in get_ctf_by_category(json, category_ctf):
+            list_projects.append(tool)
+    return list_projects
 
 
-def getAllOperating(json):
+def get_all_operating(json):
     """
     Get all os in rawsec json
     :param dict json: rawsec json
     :return: os list
     :rtype: list
     """
-    listProjects = list()
-    for categoryOperating in getOperatingCategory(json):
-        if categoryOperating == "project_transferred":
+    list_projects = list()
+    for category_operating in get_operating_category(json):
+        if category_operating == "project_transferred":
             continue
-        for tool in getOperatingByCategory(json, categoryOperating):
-            listProjects.append(tool)
-    return listProjects
+        for tool in get_operating_by_category(json, category_operating):
+            list_projects.append(tool)
+    return list_projects
