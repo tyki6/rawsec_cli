@@ -13,7 +13,7 @@ def test_json_output(capsys):
     """ test json_output function"""
     json_output(projects=[], file=None)
     captured = capsys.readouterr()
-    assert "{'projects': [], 'total': 0}" in captured.out
+    assert '{"projects": [], "total": 0}' in captured.out
 
     json_output(projects=[], file="test.json")
     assert os.path.exists("test.json")
@@ -82,7 +82,7 @@ def test_print_output(capsys):
 
     print_output(projects=[], output="json")
     captured = capsys.readouterr()
-    assert "{'projects': [], 'total': 0}" in captured.out
+    assert '{"projects": [], "total": 0}' in captured.out
 
     print_output(projects=[], output="csv", wanted_keys=["name", "source"])
     captured = capsys.readouterr()
