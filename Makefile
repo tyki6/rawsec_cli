@@ -7,7 +7,7 @@ full-install: install install-dev
 lint:
 	pre-commit run --all-files
 docstr:
-	docstr-coverage myjwt tests --skipinit --failunder 95
+	docstr-coverage rawsec_cli tests --skipinit --failunder 95
 tox:
 	pip install tox tox-gh-actions
 	tox
