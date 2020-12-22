@@ -6,6 +6,8 @@ full-install: install install-dev
 	cd docs && pip install -r requirements.txt && cd ..
 lint:
 	pre-commit run --all-files
+docstr:
+	docstr-coverage myjwt tests --skipinit --failunder 95
 tox:
 	pip install tox tox-gh-actions
 	tox
