@@ -1,4 +1,6 @@
 """Main cli file"""
+import sys
+
 import click
 
 from rawsec_cli import __commit__
@@ -37,6 +39,7 @@ def cli(ctx, version):
         click.echo(
             f"rawsec-cli, version: {__version__}, commit: {__commit__}\nFull documentation: https://rawsec-cli.readthedocs.io/",
         )
+        sys.exit()
     ctx.ensure_object(dict)
     ctx.obj["json"] = load_inventory_json()
 

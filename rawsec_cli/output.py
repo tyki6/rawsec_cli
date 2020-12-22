@@ -57,7 +57,7 @@ def json_output(projects: list, file=None):
         with open(file, "w") as f:
             json.dump({"projects": projects, "total": len(projects)}, f)
     else:
-        click.echo({"projects": projects, "total": len(projects)})
+        click.echo(json.dumps({"projects": projects, "total": len(projects)}))
 
 
 def csv_output(projects: list, wanted_keys: list, file=None):
