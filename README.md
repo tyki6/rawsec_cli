@@ -253,7 +253,7 @@ rawsec-cli list os maintained
 ## search
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|
-| -l, --lang         | None           | Filter by Language                                       |
+| -l, --lang         | language       | Filter by Language                                       |
 | -p, --paid         | None           | Filter by Price, when price is equal to paid             |
 | -f, --free         | None           | Filter by Price, when price is equal to free             |
 | -on, --online      | None           | Filter by Online, when online is equal to true           |
@@ -267,7 +267,7 @@ rawsec-cli list os maintained
 ### tools
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|
-| -l, --lang         | None           | Filter by Language                                       |
+| -l, --lang         | language       | Filter by Language                                       |
 | -p, --paid         | None           | Filter by Price, when price is equal to paid             |
 | -f, --free         | None           | Filter by Price, when price is equal to free             |
 | -on, --online      | None           | Filter by Online, when online is equal to true           |
@@ -289,7 +289,7 @@ rawsec-cli list os maintained
 ### ctf
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|
-| -l, --lang         | None           | Filter by Language                                       |
+| -l, --lang         | language       | Filter by Language                                       |
 | -p, --paid         | None           | Filter by Price, when price is equal to paid             |
 | -f, --free         | None           | Filter by Price, when price is equal to free             |
 | -o, --output       | json,csv,table | Output format                                            |
