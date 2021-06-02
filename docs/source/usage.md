@@ -31,6 +31,7 @@ You can list all tools by tool's category.
 Category available:
         binary_exploitation
         bug_bounty
+        cloud
         code_analysis
         collaboration_report
         configuration_audit
