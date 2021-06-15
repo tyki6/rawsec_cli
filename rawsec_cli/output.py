@@ -96,40 +96,27 @@ def table_output(projects: list, wanted_keys: list, file=None):
     file: str, optional
         file name.
     """
-    table_projects = list()
+    str_output = ""
     for project in projects:
-        line = list()
-        for header in wanted_keys:
-            if header not in project.keys():
-                line.append("")
-            else:
-                line.append(project[header])
-        table_projects.append(line)
-    if sys.version_info[1] > 6:
-        patterns = [
-            ("https://.+", lambda text: text + " "),
-            ("http://.+", lambda text: text + " "),
-        ]
-    else:
-        patterns = []
+        str_output += project["name"] + '\n'
+        str_output += '    ' + project['description'] + '\n'
+        for key in project.keys():
+            if key == 'name' or key == 'description':
+                continue
+            str_output += '    ' + key + ": " + project[key] + '\n'
+        str_output += '\n'
 
     if len(projects) == 0:
         click.echo("Project not found!")
     else:
-        table = columnar(
-            table_projects,
-            headers=wanted_keys,
-            justify="c",
-            patterns=patterns,
-        )
         if file is not None:
             with open(file, "w") as f:
-                f.write(table)
+                f.write(str_output)
         else:
             if len(projects) == 1:
                 if "website" in projects[0]:
                     webbrowser.open_new_tab(projects[0]["website"])
                 elif "source" in projects[0]:
                     webbrowser.open_new_tab(projects[0]["source"])
-            click.echo(table)
+            click.echo(str_output)
             click.echo("Total projects found: " + str(len(projects)))
