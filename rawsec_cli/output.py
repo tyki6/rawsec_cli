@@ -98,12 +98,17 @@ def table_output(projects: list, wanted_keys: list, file=None):
     """
     str_output = ""
     for project in projects:
-        str_output += project["name"] + '\n'
-        str_output += '    ' + project['description'] + '\n'
+        str_output += project.get('name', "Unknown Name") + '\n'
+        str_output += '    ' + project.get('description', "No Description") + '\n'
+        keywords = ""
         for key in project.keys():
             if key == 'name' or key == 'description':
                 continue
-            str_output += '    ' + key + ": " + project[key] + '\n'
+            elif (key == 'source' or key == 'website') and project[key] != "":
+                str_output += '    ' + project[key] + '\n'
+            elif project[key] != "":
+                keywords += f"[{key}: {project[key]}] "
+        str_output += '    ' + keywords + '\n'
         str_output += '\n'
 
     if len(projects) == 0:

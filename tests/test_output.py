@@ -57,8 +57,7 @@ def test_table_output(capsys):
     assert os.path.exists("test.txt")
     with open("test.txt") as txt_file:
         text = txt_file.read()
-        assert "name" in text
-        assert "source" in text
+        assert "test" in text
     os.remove("test.txt")
 
     table_output(
@@ -96,6 +95,5 @@ def test_print_output(capsys):
     assert os.path.exists("test.txt")
     with open("test.txt") as txt_file:
         text = txt_file.read()
-        assert "name" in text
-        assert "source" in text
+        assert "test" in text
     os.remove("test.txt")
