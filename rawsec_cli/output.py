@@ -97,9 +97,17 @@ def table_output(projects: list, wanted_keys: list, file=None):
     """
     str_output = ""
     for project in projects:
-        str_output += project.get("name", "Unknown Name") + "\n"
+        str_name = project.get("name", "Unknown Name") + "\n"
         str_output += (
+            click.style(str_name, fg="red") if file is None else str_name
+        )
+        str_description = (
             "    " + project.get("description", "No Description") + "\n"
+        )
+        str_output += (
+            click.style(str_description, fg="blue")
+            if file is None
+            else str_description
         )
         keywords = ""
         for key in project.keys():
@@ -109,7 +117,11 @@ def table_output(projects: list, wanted_keys: list, file=None):
                 str_output += "    " + project[key] + "\n"
             elif project[key] != "":
                 keywords += f"[{key}: {project[key]}] "
-        str_output += "    " + keywords + "\n"
+        str_output += (
+            click.style("    " + keywords + "\n", fg="white")
+            if file is None
+            else "    " + keywords + "\n"
+        )
         str_output += "\n"
 
     if len(projects) == 0:
