@@ -7,7 +7,6 @@ import webbrowser
 from typing import List
 
 import click
-from columnar import columnar
 
 
 def print_output(projects: List, output="table", file=None, wanted_keys=None):
