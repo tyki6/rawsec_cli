@@ -9,7 +9,7 @@ from typing import List
 import click
 
 
-def print_output(projects: List, output="list", file=None, wanted_keys=None):
+def print_output(projects: List, output="table", file=None, wanted_keys=None):
     """
     Generate Output.
 
@@ -37,10 +37,8 @@ def print_output(projects: List, output="list", file=None, wanted_keys=None):
         json_output(projects=projects, file=file)
     elif output == "csv":
         csv_output(projects=projects, file=file, wanted_keys=wanted_keys)
-    elif output == "table":
-        table_output(projects=projects, file=file, wanted_keys=wanted_keys)
     else:
-        list_output(projects=projects, file=file)
+        table_output(projects=projects, file=file, wanted_keys=wanted_keys)
 
 
 def json_output(projects: list, file=None):
@@ -87,68 +85,13 @@ def csv_output(projects: list, wanted_keys: list, file=None):
 def table_output(projects: list, wanted_keys: list, file=None):
     """
     Generate txt output format, use columnar for generate table.
+
     Parameters
     ----------
     projects: List[Dict]
         projects list.
     wanted_keys: List[str]
         only keys you want.
-    file: str, optional
-        file name.
-    """
-    str_output = ""
-    for project in projects:
-        str_name = project.get("name", "Unknown Name") + "\n"
-        str_output += (
-            click.style(str_name, fg="red") if file is None else str_name
-        )
-        str_description = (
-            "    " + project.get("description", "No Description") + "\n"
-        )
-        str_output += (
-            click.style(str_description, fg="blue")
-            if file is None
-            else str_description
-        )
-        keywords = ""
-        for key in project.keys():
-            if key == "name" or key == "description":
-                continue
-            elif (key == "source" or key == "website") and project[key] != "":
-                str_output += "    " + project[key] + "\n"
-            elif project[key] != "":
-                keywords += f"[{key}: {project[key]}] "
-        str_output += (
-            click.style("    " + keywords + "\n", fg="white")
-            if file is None
-            else "    " + keywords + "\n"
-        )
-        str_output += "\n"
-
-    if len(projects) == 0:
-        click.echo("Project not found!")
-    else:
-        if file is not None:
-            with open(file, "w") as f:
-                f.write(str_output)
-        else:
-            if len(projects) == 1:
-                if "website" in projects[0]:
-                    webbrowser.open_new_tab(projects[0]["website"])
-                elif "source" in projects[0]:
-                    webbrowser.open_new_tab(projects[0]["source"])
-            click.echo(str_output)
-            click.echo("Total projects found: " + str(len(projects)))
-
-
-def list_output(projects: list, file=None):
-    """
-    Generate txt list output format.
-
-    Parameters
-    ----------
-    projects: List[Dict]
-        projects list.
     file: str, optional
         file name.
     """
