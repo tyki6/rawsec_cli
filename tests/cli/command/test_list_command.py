@@ -58,7 +58,6 @@ def test_list_resource():
         catch_exceptions=False,
     )
     assert result.exit_code == 0
-    assert "name" in result.output
 
     result = CliRunner().invoke(
         cli,
@@ -83,7 +82,6 @@ def test_list_ctf():
         catch_exceptions=False,
     )
     assert result.exit_code == 0
-    assert "name" in result.output
 
     result = CliRunner().invoke(
         cli,
