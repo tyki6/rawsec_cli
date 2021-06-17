@@ -26,7 +26,7 @@ rawsec_json = {
 
 
 def test_search(mocker):
-    """ test search function"""
+    """test search function"""
     mocker.patch(
         "rawsec_cli.search.search_project",
         return_value=[{"name": "tools", "website": "test"}],
@@ -41,7 +41,7 @@ def test_search(mocker):
 
 
 def test_search_only_1_result():
-    """ test search only 1 result function"""
+    """test search only 1 result function"""
     result = CliRunner().invoke(
         cli,
         ["search", "myjwt"],
@@ -60,7 +60,7 @@ def test_search_only_1_result():
 
 
 def test_search_not_found():
-    """ test search incorrect project function"""
+    """test search incorrect project function"""
     result = CliRunner().invoke(
         cli,
         ["search", "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"],

@@ -22,7 +22,7 @@ rawsec_projects = [
 
 
 def test_filter_projects():
-    """ test filter_projects function"""
+    """test filter_projects function"""
     projects = filter_projects(
         rawsec_projects,
         lang="Python",
