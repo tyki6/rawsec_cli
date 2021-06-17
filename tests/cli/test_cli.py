@@ -5,7 +5,7 @@ from rawsec_cli.cli.cli import cli
 
 
 def test_version():
-    """ test version function"""
+    """test version function"""
     result = CliRunner().invoke(
         cli,
         ["-V"],
