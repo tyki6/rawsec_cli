@@ -45,15 +45,15 @@ from rawsec_cli.search import search_project
     "-o",
     help="Output format",
     type=click.Choice(
-        ["json", "csv", "table"],
+        ["json", "csv", "table", "list"],
         case_sensitive=False,
     ),
-    default="table",
+    default="list",
 )
 @click.option(
     "--output-file",
     "-of",
-    help="Output file name if you want. Format: json, csv, table are supported.",
+    help="Output file name if you want. Format: list, json, csv, table are supported.",
     default=None,
 )
 def search(
