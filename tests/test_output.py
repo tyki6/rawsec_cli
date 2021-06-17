@@ -71,7 +71,7 @@ def test_table_output(capsys):
 
 
 def test_list_output(capsys):
-    """test list_output function"""
+    """ test list_output function"""
     list_output(projects=[], file=None)
     captured = capsys.readouterr()
     assert "Project not found!" in captured.out
@@ -96,6 +96,14 @@ def test_list_output(capsys):
 
 def test_print_output(capsys):
     """test print_output function"""
+    print_output(
+        projects=[{"name": "test", "source": "test"}],
+        output="list",
+        wanted_keys=[],
+    )
+    captured = capsys.readouterr()
+    assert "Total projects found: 1" in captured.out
+
     print_output(
         projects=[{"name": "test", "source": "test"}],
         output="list",
