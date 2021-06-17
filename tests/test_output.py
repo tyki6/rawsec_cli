@@ -45,7 +45,7 @@ def test_csv_output(capsys):
 
 
 def test_table_output(capsys):
-    """test table_output function"""
+    """ test table_output function"""
     table_output(projects=[], file=None, wanted_keys=["name", "source"])
     captured = capsys.readouterr()
     assert "Project not found!" in captured.out
@@ -58,7 +58,8 @@ def test_table_output(capsys):
     assert os.path.exists("test.txt")
     with open("test.txt") as txt_file:
         text = txt_file.read()
-        assert "test" in text
+        assert "name" in text
+        assert "source" in text
     os.remove("test.txt")
 
     table_output(
