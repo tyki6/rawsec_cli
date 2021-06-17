@@ -11,7 +11,7 @@ from rawsec_cli.output import table_output
 
 
 def test_json_output(capsys):
-    """ test json_output function"""
+    """test json_output function"""
     json_output(projects=[], file=None)
     captured = capsys.readouterr()
     assert '{"projects": [], "total": 0}' in captured.out
@@ -26,7 +26,7 @@ def test_json_output(capsys):
 
 
 def test_csv_output(capsys):
-    """ test csv_output function"""
+    """test csv_output function"""
     csv_output(projects=[], file=None, wanted_keys=["name", "source"])
     captured = capsys.readouterr()
     assert '"name","source"' in captured.out
@@ -45,7 +45,7 @@ def test_csv_output(capsys):
 
 
 def test_table_output(capsys):
-    """ test table_output function"""
+    """test table_output function"""
     table_output(projects=[], file=None, wanted_keys=["name", "source"])
     captured = capsys.readouterr()
     assert "Project not found!" in captured.out
@@ -71,7 +71,7 @@ def test_table_output(capsys):
 
 
 def test_list_output(capsys):
-    """ test list_output function"""
+    """test list_output function"""
     list_output(projects=[], file=None)
     captured = capsys.readouterr()
     assert "Project not found!" in captured.out
@@ -95,7 +95,7 @@ def test_list_output(capsys):
 
 
 def test_print_output(capsys):
-    """ test print_output function"""
+    """test print_output function"""
     print_output(
         projects=[{"name": "test", "source": "test"}],
         output="list",

@@ -26,7 +26,7 @@ rawsec_json = {
 
 
 def test_list_tools():
-    """ test searchTools function"""
+    """test searchTools function"""
     result = CliRunner().invoke(
         cli,
         ["list", "tools", "binary_exploitation"],
@@ -51,7 +51,7 @@ def test_list_tools():
 
 
 def test_list_resource():
-    """ test searchResource function"""
+    """test searchResource function"""
     result = CliRunner().invoke(
         cli,
         ["list", "resources", "challenges_platforms"],
@@ -75,7 +75,7 @@ def test_list_resource():
 
 
 def test_list_ctf():
-    """ test searchCtf function"""
+    """test searchCtf function"""
     result = CliRunner().invoke(
         cli,
         ["list", "ctf", "attack_defense"],
@@ -99,7 +99,7 @@ def test_list_ctf():
 
 
 def test_list_os():
-    """ test searchOs function"""
+    """test searchOs function"""
     result = CliRunner().invoke(
         cli,
         ["list", "os", "maintained"],
@@ -132,7 +132,7 @@ def test_list_os():
 
 # https://github.com/mBouamama/rawsec_cli/issues/17
 def test_list_os_project_transferred():
-    """ test searchOs function when category is project_transferred"""
+    """test searchOs function when category is project_transferred"""
     result = CliRunner().invoke(
         cli,
         ["list", "os", "project_transferred"],
