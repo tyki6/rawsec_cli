@@ -16,7 +16,7 @@
 | -on, --online      | None           | Filter by Online, when online is equal to true           |
 | -off, --offline    | None           | Filter by Online, when online is equal to false          |
 | -b, --blackarch    | None           | Filter by Blackarch when package is present on Blackarch |
-| -o, --output       | json,csv,table | Output format                                            |
+| -o, --output       | list, json,csv,table | Output format                                            |
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show search help message and exit.                       |
 
@@ -31,7 +31,7 @@
 | -on, --online      | None           | Filter by Online, when online is equal to true           |
 | -off, --offline    | None           | Filter by Online, when online is equal to false          |
 | -b, --blackarch    | None           | Filter by Blackarch when package is present on Blackarch |
-| -o, --output       | json,csv,table | Output format                                            |
+| -o, --output       | list, json,csv,table | Output format                                            |
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show list tools help message and exit.                   |
 
@@ -41,7 +41,7 @@
 | ------------------ | -------------- | ---------------------------------------------------------|
 | -p, --paid         | None           | Filter by Price, when price is equal to paid             |
 | -f, --free         | None           | Filter by Price, when price is equal to free             |
-| -o, --output       | json,csv,table | Output format                                            |
+| -o, --output       | list, json,csv,table | Output format                                            |
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show list resources help message and exit.               |
 
@@ -52,7 +52,7 @@
 | -l, --lang         | None           | Filter by Language                                       |
 | -p, --paid         | None           | Filter by Price, when price is equal to paid             |
 | -f, --free         | None           | Filter by Price, when price is equal to free             |
-| -o, --output       | json,csv,table | Output format                                            |
+| -o, --output       | list, json,csv,table | Output format                                            |
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show list ctf help message and exit.                     |
 
@@ -61,6 +61,6 @@
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|
 | -b, --base         | Text           | Filter by base(ex: Linux)                                |
-| -o, --output       | json,csv,table | Output format                                            |
+| -o, --output       | list, json,csv,table | Output format                                            |
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show list ctf help message and exit.                     |

@@ -74,15 +74,15 @@ def list_command():
     "-o",
     help="Output format",
     type=click.Choice(
-        ["json", "csv", "table"],
+        ["json", "csv", "table", "list"],
         case_sensitive=False,
     ),
-    default="table",
+    default="list",
 )
 @click.option(
     "--output-file",
     "-of",
-    help="Output file name if you want. Format: json, csv, table are supported.",
+    help="Output file name if you want. Format: list, json, csv, table are supported.",
     default=None,
 )
 def tools(
@@ -192,15 +192,15 @@ def tools(
     "-o",
     help="Output format",
     type=click.Choice(
-        ["json", "csv", "table"],
+        ["json", "csv", "table", "list"],
         case_sensitive=False,
     ),
-    default="table",
+    default="list",
 )
 @click.option(
     "--output-file",
     "-of",
-    help="Output file name if you want. Format: json, csv, table are supported.",
+    help="Output file name if you want. Format: list, json, csv, table are supported.",
     default=None,
 )
 def resources(ctx, category, paid, free, output, output_file):
@@ -286,15 +286,15 @@ def resources(ctx, category, paid, free, output, output_file):
     "-o",
     help="Output format",
     type=click.Choice(
-        ["json", "csv", "table"],
+        ["json", "csv", "table", "list"],
         case_sensitive=False,
     ),
-    default="table",
+    default="list",
 )
 @click.option(
     "--output-file",
     "-of",
-    help="Output file name if you want. Format: json, csv, table are supported.",
+    help="Output file name if you want. Format: list, json, csv, table are supported.",
     default=None,
 )
 def ctf(ctx, category, lang, paid, free, output, output_file):
@@ -365,15 +365,15 @@ def ctf(ctx, category, lang, paid, free, output, output_file):
     "-o",
     help="Output format",
     type=click.Choice(
-        ["json", "csv", "table"],
+        ["json", "csv", "table", "list"],
         case_sensitive=False,
     ),
-    default="table",
+    default="list",
 )
 @click.option(
     "--output-file",
     "-of",
-    help="Output file name if you want. Format: json, csv, table are supported.",
+    help="Output file name if you want. Format: list, json, csv, table are supported.",
     default=None,
 )
 def os(ctx, category, base, output, output_file):
