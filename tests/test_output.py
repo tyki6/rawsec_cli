@@ -71,7 +71,7 @@ def test_table_output(capsys):
 
 
 def test_list_output(capsys):
-    """ test list_output function"""
+    """test list_output function"""
     list_output(projects=[], file=None)
     captured = capsys.readouterr()
     assert "Project not found!" in captured.out
