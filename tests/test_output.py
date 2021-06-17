@@ -5,6 +5,7 @@ import os
 
 from rawsec_cli.output import csv_output
 from rawsec_cli.output import json_output
+from rawsec_cli.output import list_output
 from rawsec_cli.output import print_output
 from rawsec_cli.output import table_output
 
@@ -69,8 +70,40 @@ def test_table_output(capsys):
     assert "Total projects found: 1" in captured.out
 
 
+def test_list_output(capsys):
+    """ test list_output function"""
+    list_output(projects=[], file=None)
+    captured = capsys.readouterr()
+    assert "Project not found!" in captured.out
+
+    list_output(
+        projects=[{"name": "test", "source": "test"}],
+        file="test.txt",
+    )
+    assert os.path.exists("test.txt")
+    with open("test.txt") as txt_file:
+        text = txt_file.read()
+        assert "test" in text
+    os.remove("test.txt")
+
+    list_output(
+        projects=[{"name": "test", "source": "test"}],
+        file=None,
+    )
+    captured = capsys.readouterr()
+    assert "Total projects found: 1" in captured.out
+
+
 def test_print_output(capsys):
     """ test print_output function"""
+    print_output(
+        projects=[{"name": "test", "source": "test"}],
+        output="list",
+        wanted_keys=[],
+    )
+    captured = capsys.readouterr()
+    assert "Total projects found: 1" in captured.out
+
     print_output(
         projects=[{"name": "test", "source": "test"}],
         output="table",
