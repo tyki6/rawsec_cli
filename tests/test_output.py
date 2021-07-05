@@ -107,14 +107,6 @@ def test_print_output(capsys):
 
     print_output(
         projects=[{"name": "test", "source": "test"}],
-        output="list",
-        wanted_keys=[],
-    )
-    captured = capsys.readouterr()
-    assert "Total projects found: 1" in captured.out
-
-    print_output(
-        projects=[{"name": "test", "source": "test"}],
         output="table",
         wanted_keys=["name", "source"],
     )

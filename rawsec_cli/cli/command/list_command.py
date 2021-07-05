@@ -246,10 +246,6 @@ def resources(ctx, category, paid, free, output, output_file):
     projects = filter_projects(projects, paid=paid, free=free)
     resourcesList = list()
     for resource in projects:
-        for link in resource["links"]:
-            resource[list(link.keys())[0]] = link[list(link.keys())[0]]
-        del resource["links"]
-
         resourceList = list()
         for keys in wanted_keys:
             if keys not in resource:
@@ -400,7 +396,7 @@ def os(ctx, category, base, output, output_file):
     None
         Return in output format(Default: table) in output_file(Default: stdout) a list of rawsec ctf.
     """
-    wanted_keys = ["os", "base", "description", "link"]
+    wanted_keys = ["name", "base", "description", "website"]
     if category and category not in get_operating_category(
         json=ctx.obj["json"],
     ):
