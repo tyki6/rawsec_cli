@@ -7,6 +7,7 @@ import webbrowser
 from typing import List
 
 import click
+from columnar import columnar
 
 
 def print_output(projects: List, output="list", file=None, wanted_keys=None):
@@ -96,48 +97,42 @@ def table_output(projects: list, wanted_keys: list, file=None):
     file: str, optional
         file name.
     """
-    str_output = ""
+    table_projects = list()
     for project in projects:
-        str_name = project.get("name", "Unknown Name") + "\n"
-        str_output += (
-            click.style(str_name, fg="red") if file is None else str_name
-        )
-        str_description = (
-            "    " + project.get("description", "No Description") + "\n"
-        )
-        str_output += (
-            click.style(str_description, fg="blue")
-            if file is None
-            else str_description
-        )
-        keywords = ""
-        for key in project.keys():
-            if key == "name" or key == "description":
-                continue
-            elif (key == "source" or key == "website") and project[key] != "":
-                str_output += "    " + project[key] + "\n"
-            elif project[key] != "":
-                keywords += f"[{key}: {project[key]}] "
-        str_output += (
-            click.style("    " + keywords + "\n", fg="white")
-            if file is None
-            else "    " + keywords + "\n"
-        )
-        str_output += "\n"
+        line = list()
+        for header in wanted_keys:
+            if header not in project.keys():
+                line.append("")
+            else:
+                line.append(project[header])
+        table_projects.append(line)
+    if sys.version_info[1] > 6:
+        patterns = [
+            ("https://.+", lambda text: text + " "),
+            ("http://.+", lambda text: text + " "),
+        ]
+    else:
+        patterns = []
 
     if len(projects) == 0:
         click.echo("Project not found!")
     else:
+        table = columnar(
+            table_projects,
+            headers=wanted_keys,
+            justify="c",
+            patterns=patterns,
+        )
         if file is not None:
             with open(file, "w") as f:
-                f.write(str_output)
+                f.write(table)
         else:
             if len(projects) == 1:
                 if "website" in projects[0]:
                     webbrowser.open_new_tab(projects[0]["website"])
                 elif "source" in projects[0]:
                     webbrowser.open_new_tab(projects[0]["source"])
-            click.echo(str_output)
+            click.echo(table)
             click.echo("Total projects found: " + str(len(projects)))
 
 
