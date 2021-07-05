@@ -12,7 +12,7 @@ rawsec_json = {
     },
     "operating_systems": {
         "binary_exploitation": {
-            "operating_systems": [{"os": "operating_systems"}],
+            "operating_systems": [{"name": "operating_systems"}],
         },
     },
     "ctf_platforms": {
@@ -45,7 +45,7 @@ def test_search_project_ctf():
 def test_search_project_operating():
     """test search_project_operating function"""
     assert search_project_operating(rawsec_json, "operating_systems") == [
-        {"os": "operating_systems"},
+        {"name": "operating_systems"},
     ]
 
 

@@ -106,7 +106,10 @@ def search_project_operating(json: Dict, project: str) -> List[Dict]:
     """
     list_projects = list()
     for operating in get_all_operating(json):
-        if "os" in operating and project.lower() in operating["os"].lower():
+        if (
+            "name" in operating
+            and project.lower() in operating["name"].lower()
+        ):
             list_projects.append(operating)
     return list_projects
 

@@ -190,5 +190,3 @@ def list_output(projects: list, file=None):
                     webbrowser.open_new_tab(projects[0]["source"])
             click.echo(str_output)
             click.echo("Total projects found: " + str(len(projects)))
-
-
