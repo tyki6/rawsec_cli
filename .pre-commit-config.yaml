@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
     -   id: end-of-file-fixer
     -   id: check-docstring-first
@@ -16,26 +16,26 @@ repos:
     -   id: flake8
         additional_dependencies: [flake8-typing-imports==1.10.0]
 -   repo: https://github.com/psf/black
-    rev: 21.12b0
+    rev: 22.3.0
     hooks:
     - id: black
-      language_version: python3.9
+      language_version: python3.10
 -   repo: https://github.com/pre-commit/mirrors-autopep8
-    rev: v1.5.7
+    rev: v1.6.0
     hooks:
     -   id: autopep8
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v2.29.1
+    rev: v2.31.1
     hooks:
     -   id: pyupgrade
         args: [--py36-plus]
 -   repo: https://github.com/asottile/reorder_python_imports
-    rev: v2.6.0
+    rev: v3.0.1
     hooks:
     -   id: reorder-python-imports
         args: [--py3-plus]
 -   repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.2.1
+    rev: v2.2.2
     hooks:
     -   id: add-trailing-comma
         args: [--py36-plus]

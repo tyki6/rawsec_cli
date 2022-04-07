@@ -1,5 +1,5 @@
-click==8.0.1
-Columnar==1.3.1
+click==8.0.4
+Columnar==1.4.1
 gitpython==3.1.27
-requests==2.25.1
+requests==2.27.1
 tabulate==0.8.9
