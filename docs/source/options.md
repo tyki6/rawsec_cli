@@ -1,16 +1,17 @@
 ## Options
-## Rawsec-cli
 
-| command            | type           | description                                              |
-| ------------------ |: -------------:| --------------------------------------------------------:|
-| -V, --version      | None           | show version.                                            |
-| -h, --help         | None           | Show  help message and exit.                             |
-
-## Search
+## rawsec-cli
 
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|
-| -l, --lang         | None           | Filter by Language                                       |
+| -V, --version      | None           | show version.                                            |
+| -h, --help         | None           | Show  help message and exit.                             |
+
+## search
+
+| command            | type           | description                                              |
+| ------------------ | -------------- | ---------------------------------------------------------|
+| -l, --lang         | language       | Filter by Language                                       |
 | -p, --paid         | None           | Filter by Price, when price is equal to paid             |
 | -f, --free         | None           | Filter by Price, when price is equal to free             |
 | -on, --online      | None           | Filter by Online, when online is equal to true           |
@@ -20,12 +21,13 @@
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show search help message and exit.                       |
 
-## List
-### Tools
+## list
+
+### tools
 
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|
-| -l, --lang         | None           | Filter by Language                                       |
+| -l, --lang         | language       | Filter by Language                                       |
 | -p, --paid         | None           | Filter by Price, when price is equal to paid             |
 | -f, --free         | None           | Filter by Price, when price is equal to free             |
 | -on, --online      | None           | Filter by Online, when online is equal to true           |
@@ -35,7 +37,7 @@
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show list tools help message and exit.                   |
 
-### Resources
+### resources
 
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|
@@ -45,18 +47,18 @@
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show list resources help message and exit.               |
 
-### Ctf
+### ctf
 
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|
-| -l, --lang         | None           | Filter by Language                                       |
+| -l, --lang         | language       | Filter by Language                                       |
 | -p, --paid         | None           | Filter by Price, when price is equal to paid             |
 | -f, --free         | None           | Filter by Price, when price is equal to free             |
 | -o, --output       | list, json,csv,table | Output format                                            |
 | -of, --output-file | file path      | Output file name if you want.                            |
 | -h, --help         | None           | Show list ctf help message and exit.                     |
 
-### Os
+### os
 
 | command            | type           | description                                              |
 | ------------------ | -------------- | ---------------------------------------------------------|

@@ -130,7 +130,7 @@ def test_list_os():
     assert result.exit_code == 0
 
 
-# https://github.com/mBouamama/rawsec_cli/issues/17
+# https://github.com/tyki6/rawsec_cli/issues/17
 def test_list_os_project_transferred():
     """test searchOs function when category is project_transferred"""
     result = CliRunner().invoke(
