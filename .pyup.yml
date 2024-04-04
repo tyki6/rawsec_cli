@@ -4,5 +4,5 @@
 schedule: "every month"
 update: "all"
 assignees: 
-  - mBouamama
+  - tyki6
 label_prs: update
