@@ -1,18 +1,18 @@
 # Installation
 
-To install rawsec, simply use pip:
+To install rawsec-cli, simply use pip:
 
 ```bash
 pip install rawsec-cli
 ```
 
-To run rawsec from a docker image, run:
+To run rawsec-cli from a docker image, run:
 
 ```bash
 docker run -it docker.pkg.github.com/tyki6/rawsec_cli/rawsec-cli:latest rawsec-cli --help
 ```
 
-To install rawsec, on git:
+To install rawsec-cli, on git:
 
 ```bash
 git clone https://github.com/tyki6/rawsec_cli.git

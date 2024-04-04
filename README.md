@@ -120,20 +120,24 @@ You can list all tools by tool's category.
 
 ```
 Category available:
+        adversary_simulation
         binary_exploitation
         bug_bounty
         cloud
         code_analysis
-        collaboration_report
+        collaboration_and_report
         configuration_audit
         cracking
+        crisis_management
         cryptography
+        defensive
         digital_forensics
-        honeypot_decoy
+        hardware
+        honeypot_and_decoy
         incident_response
         intentionally_vulnerable_applications
         networking
-        osint
+        osint_and_reconnaissance
         other
         plugins
         red_teaming
@@ -168,11 +172,11 @@ You can list all tools by Resources's category.
 
 ```
 Category available:
-        bug_bounty_and_disclosure_platforms
+        bug_bounty_pentest_and_disclosure_platforms
         challenges_platforms
         cve
         events
-        information
+        information_news_blog
         knowledge_and_tools
         national_security_agencies_and_services
         non_english
