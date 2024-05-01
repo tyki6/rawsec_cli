@@ -2,5 +2,5 @@ coverage==7.5.0
 flake8==7.0.0
 pre-commit==3.7.0
 pytest==8.2.0
-pytest-mock==3.7.0
+pytest-mock==3.14.0
 requests-mock==1.9.3
