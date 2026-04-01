@@ -2,4 +2,4 @@ click==8.3.1
 Columnar==1.4.1
 gitpython==3.1.46
 requests==2.33.1
-tabulate==0.8.9
+tabulate==0.10.0
